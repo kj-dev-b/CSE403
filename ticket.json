@@ -1,0 +1,10 @@
+{
+  "id": "1234",
+  "link": "https://somehelpdesk.localhost",
+  "title": "Test ticket",
+  "description": "Oh no! Something went wrong and now everything is on fire :fire:",
+  "requester": "Bob",
+  "status": "Open",
+  "agent": "Jane",
+  "priority": "High"
+}
