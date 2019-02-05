@@ -1,0 +1,12 @@
+CSE 403
+Individual Status Report #1
+Yuxi Cui
+
+Last Week Summary
+N/A for first report
+
+Current Week Progress
+Based on the feedback, we adjusted our project focus from general code review tool to a slack integration specifically designed for collaborative code review. We also came up with a set of experiment methodology plan to measure this approach is indeed effective in increasing productivity. In terms of project development, we started to talk about some key features to be implemented first and some tasks priorities. We also gathered some ideas on the feature lists in the team meeting.
+
+Next Week Plan
+In the following week, I hope our group will have a clear idea of the project architecture and a user interface. Also, I think we need to come up with a set of command languages for our project. After having these done, it would be great if we can actually start the implementation on the code for the APIs, web servers, authentications, etc. Last but not least, I think we should divide the work better such that everyone has a part he is responsible for and we can review each others’ parts before the final submission.
