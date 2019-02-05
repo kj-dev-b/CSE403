@@ -1,0 +1,21 @@
+Section 1 - Week Recap
+==========================
+No data to report from last week
+
+Section 2 - Week Progress
+==========================
+This week we began to outline the architecture and implementation
+of our application. We also started to define the features we 
+deemed were part of the Minimum Viable Product. In the meeting
+last, week we were able to take notes on feedback from the final
+project proposal and discuss the changes we planned to make in
+the next iteration. 
+
+Section 3 - Next Week Tasks
+==========================
+For next week, we hope to have begun implementation on the web
+server needed to run this application (All). We will also set 
+up OAuth tokens needed for GitHub and Slack APIs (Keegan). 
+Finally, we will have defined the user interface and the 
+communication strategy of the application with the user 
+(Annabelle & Ethan).
