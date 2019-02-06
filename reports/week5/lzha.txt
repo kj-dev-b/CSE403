@@ -1,0 +1,12 @@
+CSE 403
+Individual Status Report #1
+Annabelle Zha
+
+Section 1 - Last Week:
+N/A for first report
+
+Section 2 - Current Week:
+We had two meetings last week. During the meeting on Tuesday we reviewed the feedback of Proj1 together and decided to shift the focus of our project. We went over the feedback of our Proj2 submission last Thursday and discussed about some of the concerns our TA had and some additional features he suggested. We started looking into the architecture plan this week. We checked the slack api website for tutorials on how to start building our app and chat bot to get a basic understanding of the architecture. 
+
+Section 3: Next Week
+My personal goal for the week is to get myself familiar to the basic syntax of Javascript as many parts of this project require knowing Javascript. As for the team, I think our first goal for next week is to implement the experiment we mentioned in proj2 proposal to prove that our project does improve productivity for collaborative code review. Another goal is to figure out a set of command languages that allow our users interact with our API directly from Slack. Finally I hope we can all get a very clear sense of the details of our architecture and start coding for our API next week. 

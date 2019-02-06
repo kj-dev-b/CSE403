@@ -1,0 +1,13 @@
+CSE 403
+Individual Status Report #1
+Tim Chirananthavat
+
+Last Week Summary
+N/A
+
+Current Week Progress
+We have talked about what our product would be like, including planning the architecture of the code.
+
+Next Week Plan
+We hope to have a prototype/design for how our product should work.
+My personal goal is to familarize myself with the APIs of Slack and Github, so I can quickly start implement the software
