@@ -1,0 +1,16 @@
+Section 1 - Week Recap
+==========================
+We finished the architectural design of the application.
+We also created a mock up of the user interface we plan to implement.
+
+Section 2 - Week Progress
+==========================
+This week we began to configure the application that will live
+in Slack. We also began to implement the API layer that will 
+interact with the GitHub API.
+
+Section 3 - Next Week Tasks
+==========================
+Next week we plan to implement the functionality of the slack bot (UI)
+and send data to GitHub through the API. Finally we hope to be parsing
+data from the Slack Events API when the QReview commands are invoked.
