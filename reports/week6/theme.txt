@@ -1,0 +1,13 @@
+CSE 403
+Individual Status Report #1
+Tim Chirananthavat
+
+Last Week Summary
+We hope to have a prototype/design for how our product should work.
+My personal goal is to familarize myself with the APIs of Slack and Github, so I can quickly start implement the software
+
+Current Week Progress
+After some research, I've decided to use Probot (https://probot.github.io/) as the library for interacting with github. I have set up a program that is notified when a new issue in a repo is created, and can respond with a comment in the issue. 
+
+Next Week Plan
+I hope to have a program that can interact with github in all or almost all the necessary ways our project needs. Additionally, I might look into whether it is possible for our github bot to post a comment on behalf of a user, so it appears the same way as a comment posted by the user themself.
