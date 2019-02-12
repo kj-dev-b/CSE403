@@ -1,0 +1,20 @@
+CSE 403
+Individual Status Report #2
+Yuxi Cui
+
+Last Week Summary
+In the following week, I hope our group will have a clear idea of the project architecture and a user interface. 
+Also, I think we need to come up with a set of command languages for our project. 
+After having these done, it would be great if we can actually start the implementation on the code for the APIs, web servers, authentications, etc. 
+Last but not least, I think we should divide the work better such that everyone has a part he is responsible for and we can review each others’ parts before the final submission.
+
+Current Week Progress
+I helped in revising and inspecting the architecture.
+I participated in creating the command language, especially how to represent the line number in the changed code.
+I started to look into the Slack API and webhooks. I put down some initial thoughts on webhooks receiving and routing handling.
+
+
+Next Week Plan
+1. Have a first draft of event handler sub-architecture
+2. Start developing the event handler
+3. Figure out the core logic for text processor.
