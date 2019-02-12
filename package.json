@@ -1,0 +1,31 @@
+{
+  "name": "q-review",
+  "version": "0.1.0",
+  "description": "A Node.js Slack-integrated Express App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "dotenv": "^6.2.0"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KeegJordan/CSE403"
+  },
+  "keywords": [
+    "node",
+    "slack",
+    "express"
+  ],
+  "author": "Keegan Jordan",
+  "contributors": [
+    "Tim Chirananthavat",
+    "Annabelle Zha",
+    "Ethan Cui"
+  ]
+}
