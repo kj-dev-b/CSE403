@@ -1,0 +1,29 @@
+CSE 403
+Individual Status Report #1
+Annabelle Zha
+
+Section 1 - Last Week:
+My personal goal for the week is to get myself familiar to the basic
+syntax of Javascript as many parts of this project require knowing Javascript. 
+As for the team, I think our first goal for next week is to implement the
+experiment we mentioned in proj2 proposal to prove that our project does
+improve productivity for collaborative code review. Another goal is to figure
+out a set of command languages that allow our users interact with our
+API directly from Slack. Finally I hope we can all get a very clear sense
+of the details of our architecture and start coding for our API next week. 
+
+Section 2 - Current Week:
+As I was assigned to build the bot of our API, I created a new Slack app
+this week, added some basic features including a bot user and configured
+some basic permission options. Through these implementations I gained some
+familiarities to the Slack bot toolkit.
+I also started learning Javascript grammar on a study app.
+As for the team, we created a set of command languages and did a mockup of our
+user interface. We had a meeting on Thursday this week where we went
+over the proj3 feedback.
+
+Section 3: Next Week
+I still think it's urgent to implement our experiment to prove the benefits
+our project can bring. For the incoming week I hope I can finish my Javascript
+entry level online course. I plan to add more features to our bot so that
+it can have simple conversations with us in our Slack workplace. 
