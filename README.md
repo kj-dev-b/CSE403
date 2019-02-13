@@ -24,9 +24,17 @@ When a review is created in GitHub, users are able to interact with it in Slack.
     1. In another window, start ngrok on the same port as your webserver (`ngrok http $PORT`)
 
 #### Enable Q Review
-1. Go back to the app settings and click on Interactive Messages.
+1. Go back to the app settings and click on Q Review.
 1. Set the Request URL to your ngrok URL + /test
 
 #### Say Hello
 1. Add Q Review to the channel you are working in
-1. Type the command `/qreview`
+		* Inline comment:
+/qreview comment line+ “...”
+/qreview comment line- “...”
+		* General comment:
+/qreview comment "..."
+		* Request changes:
+/qreview request changes “...”
+		* Approve:
+/qreview approve "..."
