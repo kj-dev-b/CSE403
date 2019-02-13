@@ -1,12 +1,15 @@
 require('dotenv').config();
 const express = require('express');
 const request = require('request');
+const apiRouter = require('./routes/APIRouter');
 
 const app = express();
 
 app.get('/', (req, res) => {
   res.send('Success! Q Review is active.');
 });
+
+app.use('/api', apiRouter);
 
 app.post('/test', function(req, res) {
 	res.send('Success! Q Review is in Slack!');
