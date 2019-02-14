@@ -1,0 +1,16 @@
+Last Week Summary
+For next week, we hope to have begun implementation on the web
+server needed to run this application (All). We will also set 
+up OAuth tokens needed for GitHub and Slack APIs (Keegan). In addition, we will try to implement the experiment we mentioned in proj2 proposal that proves our project does improve productivity for collaborative code review (All).
+
+Current Week Progress
+This week we began to configure the application that will live in Slack: we built a Slack app with a bot user and configured some basic functionalities and we started looking into the webhooks receiving and routing handling. We also began to implement the API layer that will interact with the GitHub API: we have set up a program that is notified when a new issue in a repo is created, and can respond with a comment in the issue. 
+
+
+Next Week Plan
+Next week we plan to implement the functionality of the slack bot (UI) and send data to GitHub through the API. Besides, we hope to be parsing data from the Slack Events API when the QReview commands are invoked. We will also look into whether it is possible for our github bot to post a comment on behalf of a user.
+
+Meeting Agenda
+Review User Manual feedback (if any)
+Report / discuss project progress
+Advice / suggestions
