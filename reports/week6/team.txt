@@ -12,5 +12,5 @@ Next week we plan to implement the functionality of the slack bot (UI) and send 
 
 Meeting Agenda
 Review User Manual feedback (if any)
-Report / discuss project progress
+Report / discuss project progress - implementation & design choices
 Advice / suggestions
