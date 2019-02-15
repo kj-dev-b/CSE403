@@ -1,3 +1,3 @@
-Google Docs: https://docs.google.com/presentation/d/1T7TBtmNxt6TsoUCfAOoDvIXoFTkYTRVPIcKkqxq6JWU/edit#slide=id.p
+Google Docs: https://docs.google.com/document/d/1UDNeRHNCbvVAB3BiwvnKGgKZRptWktwFrbMWgseSTWw/edit?usp=sharing
 
 Hours spent: 6 hours
