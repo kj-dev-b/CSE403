@@ -12,8 +12,8 @@ Section 2 - Current Week:
 As I mentioned last week I had trouble understand code written by my teammates
 due to unfamilarity to the framework we are using. To catch up, I watched a couple of
 tutorials on Node JS, Json, Javascript, and building RESTful apis with Node & Express.
-I participated in the presentation last week and I added a few paragraphs and made a few
-modifications to our report.
+I participated in the presentation last week and I added a few paragraphs&citation and
+made a few modifications to our report.
 
 Section 3: Next Week
 I shoud definitely start actually coding and add more features to our bot next week. 
