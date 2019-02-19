@@ -1,15 +1,20 @@
 require('dotenv').config();
 const express = require('express');
 const request = require('request');
+const bodyParser = require('body-parser');
 
 const app = express();
+
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
   res.send('Success! Q Review is active.');
 });
 
 app.post('/test', function(req, res) {
-	res.send('Success! Q Review is in Slack!');
+    console.log(req.body);
+    res.send('Success! Q Review is in Slack!');
 })
 
 app.get('/oauth', function(req, res) {
