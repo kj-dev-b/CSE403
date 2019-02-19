@@ -1,0 +1,18 @@
+Keegan Jordan
+
+Section 1 - Last Week:
+Last week I prepared and presented slides of our project up to this
+point. I created the skeleton of our REST server that will accept and 
+process incoming messages from Slack and GitHub
+
+Section 2 - Current Week:
+I began coding the interaction between messages in slack and GitHub
+and planned out the implementation of the CI/CD pipeline we will use
+to deploy our production webserver.
+
+Section 3 - Next Week:
+I will continue to evaluate the different components of our project,
+create a working test suite that will be automatically triggered
+by github commits prior to deploying on Heroku. We will also have
+the implementation in place to try end to end tests of simple 
+messages with mock data
