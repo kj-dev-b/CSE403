@@ -1,0 +1,22 @@
+CSE 403
+Individual Status Report #4
+Annabelle Zha
+
+Section 1 - Last Week:
+I still think it's urgent to implement our experiment to prove the benefits
+our project can bring. For the incoming week I hope I can finish my Javascript
+entry level online course.  I plan to add more features to our bot so that
+it can have simple conversations with us in our Slack workplace. 
+
+Section 2 - Current Week:
+As I mentioned last week I had trouble understand code written by my teammates
+due to unfamilarity to the framework we are using. To catch up, I watched a couple of
+tutorials on Node JS, Json, Javascript, and building RESTful apis with Node & Express.
+I participated in the presentation last week and I added a few paragraphs and made a few
+modifications to our report.
+
+Section 3: Next Week
+I shoud definitely start actually coding and add more features to our bot next week. 
+For the team I hope we can continue to add more citations to our report to support
+the claims and assumptions we made, also we should come up with a better user study plan.
+
