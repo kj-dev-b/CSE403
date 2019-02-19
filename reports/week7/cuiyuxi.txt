@@ -1,0 +1,19 @@
+CSE 403
+Individual Status Report
+Yuxi Cui
+
+Last Week Summary
+1. Have a first draft of event handler sub-architecture
+2. Start developing the event handler
+3. Figure out the core logic for text processor
+
+Current Week Progress
+Submitter a PR for event handler code
+Started developing
+Started to look for cloud services that can help our problem
+
+
+Next Week Plan
+1. Gather conclusive evidence, send out survey, and conduct experiemnts that support the project's claim
+2. Figure out how should my module interact with different modules in the architure
+3. Learn more about CI/CD pipeline from Keegan
