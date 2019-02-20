@@ -1,0 +1,12 @@
+CSE 403
+Individual Status Report week 7
+Tim Chirananthavat
+
+Last Week Summary
+I hope to have a program that can interact with github in all or almost all the necessary ways our project needs. Additionally, I might look into whether it is possible for our github bot to post a comment on behalf of a user, so it appears the same way as a comment posted by the user themself.
+
+Current Week Progress
+I have proposed to the team a design of how to organize the different parts of the program. There were some potential issues I discovered about this design, and issues about how the program should behave in some scenarios. In particular, the program might need two event loops, which makes me unsure whether I can use the Probot framework.
+
+Next Week Plan
+I hope to nail down the exact program behavior and organization. One other thing that I have to look into is whether we need a database to store data. There's still the issue of "posting on behalf of a user" that is still unsolved.
