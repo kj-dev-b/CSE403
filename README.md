@@ -71,12 +71,14 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 
 ##### Say Hello
 1. Add Q Review to the channel you are working in
-		* Inline comment:
-/qreview comment line+ “...”
-/qreview comment line- “...”
-		* General comment:
-/qreview comment "..."
-		* Request changes:
-/qreview request changes “...”
-		* Approve:
-/qreview approve "..."
+	* `Inline comment`
+	/qreview comment line+ “...”
+	/qreview comment line- “...”
+	* `General comment`
+	/qreview comment "..."
+	* `Request changes`
+	/qreview request changes “...”
+	* `Approve`
+	/qreview approve "..."
+	* `Learn more`
+	/qreview help
