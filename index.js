@@ -2,6 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser');
+const github = require('./src/github');
+const bot = require('./src/slackbot');
 
 const app = express();
 
@@ -9,12 +11,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
-  res.send('Success! Q Review is active.');
+  github.message(res);
 });
 
 app.post('/test', function(req, res) {
-    console.log(req.body);
-    res.send('Success! Q Review is in Slack!');
+    var payload = req.body;
+    bot.respond(payload, res);
 })
 
 app.get('/oauth', function(req, res) {
