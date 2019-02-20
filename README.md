@@ -17,23 +17,23 @@
 /qreview help
 
 ### Demo
-![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+![1](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/PullRequestCreate.jpg?raw=true)
 When a new pull request is made on Github, Q Review fetches the basic information of it, such as the code and requested reviewers. From here, our bot creates a new channel (in this demo called “pull-request-1293”), adds the contributor and requested reviewers to the channel, and sends a snippet of the code to the chat. In this demo, Annabelle and Ethan are the reviewers and Keegan is the contributor.
 
 
-![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+![2](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/2.png?raw=true)
 Ethan says /qreview request changes “please remove the debug code in our production build”, QReview requests changes to the pull request on GitHub and inform the user whether the action has succeeded.  
 
 
-![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+![3](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/3edited.jpg?raw=true)
 When changes are made to the pull request, the bot sends the updated code snippet to the chat. Annabelle says /qreview comment 178+ “Is this line also for debugging?”, QReview adds this comment to line 178+ of the pull request code on GitHub. Then Keegan says /qreview comment 178+ “It was initially…”, QReview adds another comment to line 178+ of the code on GitHub and informs the users.
 
 
-![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+![4](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/4.png?raw=true)
 After that Annabelle tells QReview to request changes again and QReview requests changes for the commit on GitHub.
 
 
-![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+![5](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/5edited.jpg?raw=true)
 When they finally reach an agreement on the code, Annabelle calls the bot to approve the changes by saying /qreview approve “Good Job!...”. QReview then informs the user that the pull request has been approved. 
 
 
