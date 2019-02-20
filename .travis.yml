@@ -3,3 +3,4 @@ deploy:
   provider: heroku
   api_key:
     secure: $HEROKU_AUTH_TOKEN
+  app: qreview-cse403
