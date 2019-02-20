@@ -4,17 +4,18 @@
 1. Go to slack.com/apps and search for QReview
 2. Install QReview to your workplace
 3. QReview creates a new channel when a new pull request is made on GitHub. Use the following commands to interact with QReview:
-		* Inline comment:
-/qreview comment line+ “...”
-/qreview comment line- “...”
-		* General comment:
-/qreview comment "..."
-		* Request changes:
-/qreview request changes “...”
-		* Approve:
-/qreview approve "..."
-		* Learn more:
-/qreview help
+	* `Inline comment`
+	/qreview comment line+ “...”
+	/qreview comment line- “...”
+	* `General comment`
+	/qreview comment "..."
+	* `Request changes`
+	/qreview request changes “...”
+	* `Approve`
+	/qreview approve "..."
+	* `Learn more`
+	/qreview help
+
 
 ### Demo
 ![1](https://github.com/KeegJordan/CSE403/blob/master/reports/week5/PullRequestCreate.jpg?raw=true)
