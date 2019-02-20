@@ -4,7 +4,8 @@
   "description": "A Node.js Slack-integrated Express App",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "echo running tests"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
