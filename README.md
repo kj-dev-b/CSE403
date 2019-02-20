@@ -1,17 +1,58 @@
 # Q Review
 
+## End User Manual
+1. Go to slack.com/apps and search for QReview
+2. Install QReview to your workplace
+3. QReview creates a new channel when a new pull request is made on GitHub. Use the following commands to interact with QReview:
+		* Inline comment:
+/qreview comment line+ “...”
+/qreview comment line- “...”
+		* General comment:
+/qreview comment "..."
+		* Request changes:
+/qreview request changes “...”
+		* Approve:
+/qreview approve "..."
+		* Learn more:
+/qreview help
+
+### Demo
+![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+When a new pull request is made on Github, Q Review fetches the basic information of it, such as the code and requested reviewers. From here, our bot creates a new channel (in this demo called “pull-request-1293”), adds the contributor and requested reviewers to the channel, and sends a snippet of the code to the chat. In this demo, Annabelle and Ethan are the reviewers and Keegan is the contributor.
+
+
+![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+Ethan says /qreview request changes “please remove the debug code in our production build”, QReview requests changes to the pull request on GitHub and inform the user whether the action has succeeded.  
+
+
+![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+When changes are made to the pull request, the bot sends the updated code snippet to the chat. Annabelle says /qreview comment 178+ “Is this line also for debugging?”, QReview adds this comment to line 178+ of the pull request code on GitHub. Then Keegan says /qreview comment 178+ “It was initially…”, QReview adds another comment to line 178+ of the code on GitHub and informs the users.
+
+
+![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+After that Annabelle tells QReview to request changes again and QReview requests changes for the commit on GitHub.
+
+
+![alt text](https://drive.google.com/open?id=1pRfq70PYp0q3Q9LwX5hNnRduyFxmYZhJ)
+When they finally reach an agreement on the code, Annabelle calls the bot to approve the changes by saying /qreview approve “Good Job!...”. QReview then informs the user that the pull request has been approved. 
+
+
+
+
+## Developer Manual
+
 When a review is created in GitHub, users are able to interact with it in Slack.
 
-## Setup
+### Setup
 
-#### Create a Slack app
+##### Create a Slack app
 
 1. Create an app at api.slack.com/apps
 1. Navigate to the OAuth & Permissions page and add the following scopes:
     * `users:read`
     * `chat:write:bot`
 
-#### Run locally
+##### Run locally
 1. Get the code
     * Clone this repo and run `npm install`
 1. Set the following environment variables to `.env`: (see .env-sample)
@@ -23,11 +64,11 @@ When a review is created in GitHub, users are able to interact with it in Slack.
     1. Start the app (`npm start`)
     1. In another window, start ngrok on the same port as your webserver (`ngrok http $PORT`)
 
-#### Enable Q Review
+##### Enable Q Review
 1. Go back to the app settings and click on Q Review.
 1. Set the Request URL to your ngrok URL + /test
 
-#### Say Hello
+##### Say Hello
 1. Add Q Review to the channel you are working in
 		* Inline comment:
 /qreview comment line+ “...”
