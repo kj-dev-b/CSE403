@@ -1,0 +1,32 @@
+Last Week Summary
+We plan to implement the functionality of the slack bot (UI) and send data to GitHub through the API.
+Besides, we hope to be parsing data from the Slack Events API when the QReview commands are invoked.
+We will also look into whether it is possible for our github bot to post a comment on behalf of a user.
+
+Current Week Progress
+This week we began to configure the Slack Bot and able to send test result invoked by test command in our local development.
+For the Slack Event API, we now have a list of event cases and wrote some starter routing code for it.
+We did some preliminary research and think Github bot is able to post comments on behalf of users and we are in the stage
+of configuring and implementing it. 
+We also shifted our architecture as we now think a separate server is needed to power our app. 
+Based on the feedback, we gathered specific evidence from published papers and researches to support out claim and
+prove the project is novel and worth developing.
+We also added a CI/CD pipeline and a test suite for future development
+
+Next Week Plan
+1. We will also have the implementation in place to try end to end tests of simple messages with mock data
+2. We will continue to add more citations and conduct experiment (if prototype available) to our report where
+necessary to support the claims and assumptions we made
+3. We will have a clear interaction spec among different modules within our system. For example, 
+when a certain command is sent by user, what endpoint in the event-handler module should the Slack module call, 
+and what method in the Github module should the event-handler invoke to process that request.
+
+Meeting Agenda
+Did we address all the feedback?
+  - Fix architecture diagram
+  - Annotate Manual w/ TODOs
+  - CI configuration
+Report / discuss project progress
+Advice / suggestions
+
+
