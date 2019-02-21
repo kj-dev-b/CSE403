@@ -4,6 +4,7 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const github = require('./src/github');
 const bot = require('./src/slackbot');
+const port = process.env.PORT || 3000;
 
 const app = express();
 
@@ -39,6 +40,6 @@ app.get('/oauth', function(req, res) {
     }
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`App listening on port ${process.env.PORT}`);
+app.listen(port, () => {
+  console.log(`App listening on port ${port}`);
 });
