@@ -1,5 +1,7 @@
 Last Week Summary
-We plan to implement the functionality of the slack bot (UI) and send data to GitHub through the API. Besides, we hope to be parsing data from the Slack Events API when the QReview commands are invoked. We will also look into whether it is possible for our github bot to post a comment on behalf of a user.
+We plan to implement the functionality of the slack bot (UI) and send data to GitHub through the API.
+Besides, we hope to be parsing data from the Slack Events API when the QReview commands are invoked.
+We will also look into whether it is possible for our github bot to post a comment on behalf of a user.
 
 Current Week Progress
 This week we began to configure the Slack Bot and able to send test result invoked by test command in our local development.
