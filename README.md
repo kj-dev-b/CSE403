@@ -1,7 +1,7 @@
 # Q Review
 
 ## End User Manual
-1. Go to slack.com/apps and search for QReview
+1. Go to slack.com/apps and search for QReview (TODO, please use instructions for running locally below for now)
 2. Install QReview to your workplace
 3. QReview creates a new channel when a new pull request is made on GitHub. Use the following commands to interact with QReview:
 	* `Inline comment`
