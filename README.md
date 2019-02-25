@@ -49,9 +49,11 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 ##### Create a Slack app
 
 1. Create an app at api.slack.com/apps
-1. Navigate to the OAuth & Permissions page and add the following scopes:
+2. Navigate to the OAuth & Permissions page and add the following scopes:
     * `users:read`
     * `chat:write:bot`
+3. Click on "Install App to Workspace"
+3. Navigate to the Slash Commands page and add a command (e.g., `/qreview`). Put anything for the request URL and short description for now.
 
 ##### Run locally
 1. Get the code
@@ -62,4 +64,6 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 
 ##### Enable Q Review
 1. Go back to the app settings and click on Q Review.
-1. Set the Request URL to your ngrok URL + /test
+2. Navigate to the Slash Commands page and set the Request URL to your ngrok URL (printed by `npm run dev`) + /test
+    * For example, `https://ade1f065.ngrok.io/test`
+3. You should now be able to try out the command in Slack.
