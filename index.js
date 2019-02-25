@@ -4,7 +4,7 @@ const request = require('request');
 const bodyParser = require('body-parser');
 const github = require('./src/github');
 const bot = require('./src/slackbot');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const app = express();
 
