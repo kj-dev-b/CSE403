@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js & ngrok http 3000",
+    "dev": "concurrently --kill-others \"npm start\" \"npm run ngrok\"",
+    "ngrok": "./ngrok http 3000",
     "test": "echo running tests"
   },
   "dependencies": {
@@ -30,5 +31,8 @@
     "Tim Chirananthavat",
     "Annabelle Zha",
     "Ethan Cui"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^4.1.0"
+  }
 }
