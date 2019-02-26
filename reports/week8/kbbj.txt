@@ -1,0 +1,13 @@
+Keegan Jordan
+CSE 403 - Individual Status Report
+
+Section 1 - Last Week:
+Last week I set up the CI/CD platform with Travis CI and created a deployment 
+pipeline for running the app on Heroku. I also improved the build process and 
+the setup of the dev environment running on a local computer.
+
+Section 2 - Current Week:
+I finished the continuous deployment pipeline and reached a running version in the cloud. I added a test framework and implemented a test suite for the code we had so far. 
+
+Section 3: Next Week
+Next week we will should have a working version of our project. I'll be verifying that things are working in the production server and add integration tests to the codebase.
