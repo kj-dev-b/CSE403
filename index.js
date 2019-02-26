@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 
 app.post('/test', function(req, res) {
     var payload = req.body;
-    bot.respond(payload, res);
+    res.send(bot.respond(payload));
 })
 
 app.get('/oauth', function(req, res) {

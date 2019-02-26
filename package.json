@@ -7,7 +7,7 @@
     "start": "node index.js",
     "dev": "concurrently --kill-others \"npm start\" \"npm run ngrok\"",
     "ngrok": "./ngrok http 5000 & ./url.sh",
-    "test": "echo running tests"
+    "test": "mocha"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
@@ -33,6 +33,7 @@
     "Ethan Cui"
   ],
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.0",
+    "mocha": "^6.0.2"
   }
 }

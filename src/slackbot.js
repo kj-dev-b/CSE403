@@ -17,6 +17,6 @@ exports.changesAddedPR = (prNum, code, language, commitNum, res) => {
 	// send code snippet
 };
 
-exports.respond = (payload, res) => {
-	res.send("Hello, " + payload.user_name + "!");
+exports.respond = (payload) => {
+	return "Hello, " + payload.user_name + "!";
 }
