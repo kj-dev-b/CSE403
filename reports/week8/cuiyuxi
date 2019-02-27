@@ -1,0 +1,19 @@
+CSE 403
+Individual Status Report
+Yuxi Cui
+
+Last Week Summary
+1. Gather conclusive evidence, send out survey, and conduct experiemnts that support the project's claim
+2. Figure out how should my module interact with different modules in the architure
+3. Learn more about CI/CD pipeline from Keegan
+
+Current Week Progress
+Found some publications that support our claim. In the process of coming up surveys and experiments.
+Have a clear contract of interaction with slack bot.
+Learnt about how to set up CI/CD pipeline and configure test suite.
+Finished text processor
+
+Next Week Plan
+1. Keep looking for more evidence for project's claim.
+2. Come up with a contract with GitHub module
+3. Finish event handler

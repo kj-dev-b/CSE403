@@ -1,10 +1,11 @@
 require('dotenv').config();
-const express = require('express');
-const request = require('request');
-const bodyParser = require('body-parser');
-const github = require('./src/github');
-const bot = require('./src/slackbot');
-const port = process.env.PORT || 3000;
+var express = require('express');
+var request = require('request');
+var bodyParser = require('body-parser');
+var github = require('./src/github');
+var bot = require('./src/slackbot');
+var path = require('path');
+var port = process.env.PORT || 5000;
 
 const handler = require('./src/handler');
 const textProcessor = require('./src/textProcessor');
@@ -15,12 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 
 app.get('/', (req, res) => {
-  github.message(res);
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/test', function(req, res) {
     var payload = req.body;
-    bot.respond(payload, res);
+    res.send(bot.respond(payload));
 })
 
 app.post('/qreview', function(req, res) {
