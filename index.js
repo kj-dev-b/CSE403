@@ -6,6 +6,9 @@ const github = require('./src/github');
 const bot = require('./src/slackbot');
 const port = process.env.PORT || 3000;
 
+const handler = require('./src/handler');
+const textProcessor = require('./src/textProcessor');
+
 const app = express();
 
 app.use(bodyParser.json()); 
@@ -19,6 +22,19 @@ app.post('/test', function(req, res) {
     var payload = req.body;
     bot.respond(payload, res);
 })
+
+app.post('/qreview', function(req, res) {
+    const raw = req.body.text;
+    // pass the request data
+    // raw only
+    // or add only
+    // add comment of what the request look like
+    const command = textProcessor.extractCommand(raw);
+    const message = textProcessor.extractMessage(raw);
+    const response = (handler.handle(command, message));
+    res.send(response);
+});
+
 
 app.get('/oauth', function(req, res) {
     if (!req.query.code) {
