@@ -1,0 +1,1 @@
+var processor = require('../src/text-processor');

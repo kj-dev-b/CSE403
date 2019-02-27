@@ -1,0 +1,1 @@
+var handler = require('../src/handler');
