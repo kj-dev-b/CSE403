@@ -1,5 +1,7 @@
 # Q Review
 
+[![Build Status](https://travis-ci.com/KeegJordan/CSE403.svg?branch=master)](https://travis-ci.com/KeegJordan/CSE403)
+
 ## End User Manual
 1. Go to slack.com/apps and search for QReview (TODO, please use instructions for running locally below for now)
 2. Install QReview to your workplace
