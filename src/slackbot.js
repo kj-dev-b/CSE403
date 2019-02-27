@@ -1,6 +1,20 @@
 const request = require('request');
 // set up by "npm install superagent@3.5.2"
 const superagent = require('superagent');
+const express = require('express');
+const handler = require("./src/handler");
+
+const app = express();
+
+// handle user command and respond to them
+app.post('/qreview', (req, res) => {
+	// save the payload, payload contains the command and the text
+	var payload = req.body;
+	
+	// pass the text to the event handler and fetch the response
+	//const responseFromHandler = handler.handleNewComment(repo, owner, prNum, command, data);
+	//res.send(responseFromHandler.body)
+ })
 
 let data = {
 	'channelId': '',
@@ -73,7 +87,7 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 			token: SLACK_TOKEN,
 			channel: data.channelId,
 			text: `Welcome to ${data.channelName}! You have a new pull request
-			 	awaiting review from @${data.contributor.name}. Here is the snippet:`
+			 	awaiting review from <@${data.contributor.id}>. Here is the snippet:`
 		}
 	}, (error, res, body) => {
 		if (error) {
