@@ -8,7 +8,7 @@ var path = require('path');
 var port = process.env.PORT || 5000;
 
 const handler = require('./src/handler');
-const textProcessor = require('./src/tex-processor');
+var textProcessor = require('./src/text-processor');
 
 const app = express();
 
@@ -30,10 +30,13 @@ app.post('/qreview', function(req, res) {
     // raw only
     // or add only
     // add comment of what the request look like
+
     const command = textProcessor.extractCommand(raw);
     const message = textProcessor.extractMessage(raw);
     const response = (handler.handle(command, message));
     res.send(response);
+
+    //res.send("qreview invoked!");
 });
 
 

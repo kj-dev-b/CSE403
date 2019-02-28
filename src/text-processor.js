@@ -1,4 +1,4 @@
-exports.extractCommand = (rawInput) => {
+function extractCommand(rawInput) {
     const cleanInput = rawInput.trim().toLowerCase();
     if(cleanInput.startsWith("comment")) {
         if( ! (cleanInput.includes("+") || cleanInput.includes("_"))) {
@@ -22,7 +22,7 @@ exports.extractCommand = (rawInput) => {
 };
 
 // if unrecgnized command, return empty string
-exports.extractMessage = (rawInput) => {
+function extractMessage(rawInput) {
     let cleanInput = rawInput.trim().toLowerCase();
     let command = cleanInput = extractCommand(rawInput);
     if(command == "unrecognized") {
@@ -46,3 +46,5 @@ exports.extractMessage = (rawInput) => {
     }
 };
 
+exports.extractCommand = extractCommand;
+exports.extractMessage = extractMessage;

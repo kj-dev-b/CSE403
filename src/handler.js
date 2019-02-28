@@ -9,7 +9,7 @@ Approve: /qreview approve "..."\n
 exports.handle = (command, message, payload) => {
     let user = "keegan";
     let result;
-    if(command.startrsWith("comment")) {
+    if(command.startsWith("comment")) {
         if(!(command.includes("+") || command.includes("-"))) { //general comment
             result = `${user} made a comment: "${message}"`;
         } else { //comment with line number
