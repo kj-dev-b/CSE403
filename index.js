@@ -8,7 +8,7 @@ var path = require('path');
 var port = process.env.PORT || 5000;
 
 const handler = require('./src/handler');
-const textProcessor = require('./src/text-processor');
+const textProcessor = require('./src/textProcessor');
 
 const app = express();
 
