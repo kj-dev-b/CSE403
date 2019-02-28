@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "concurrently --kill-others \"npm start\" \"npm run ngrok\"",
-    "ngrok": "./ngrok http 5000 & ./url.sh",
-    "test": "mocha"
+    "ngrok": "./ngrok http 5000 & ./scripts/url.sh",
+    "test": "mocha --recursive test/",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha test/ --recursive"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
@@ -34,6 +35,7 @@
   ],
   "devDependencies": {
     "concurrently": "^4.1.0",
+    "istanbul": "^0.4.5",
     "mocha": "^6.0.2"
   }
 }
