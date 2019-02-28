@@ -60,9 +60,7 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 ##### Run locally
 1. Get the code
     * Clone this repo and run `npm install` Information page) (install npm first if you havn't, available at here:          	  https://www.npmjs.com/get-npm)
-1. If you're running the app locally:
-		1. You must have ngrok installed in order to run the app locally: ([install ngrok](https://ngrok.com/download))
-    1. Start the dev environment by running `npm run dev`
+1. Start the dev environment by running `npm run dev`
 
 ##### Enable Q Review
 1. Go back to the app settings and click on Q Review.
