@@ -1,0 +1,28 @@
+Last Week
+We will also have the implementation in place to try end to end tests of simple messages with mock data
+We will continue to add more citations and conduct experiment (if prototype available) to our report where
+necessary to support the claims and assumptions we made
+We will have a clear interaction spec among different modules within our system. For example, when a certain
+command is sent by user, what endpoint in the event-handler module should the Slack module call, and what method
+in the Github module should the event-handler invoke to process that request.
+
+This Week
+We found some publications that support our claim. 
+We are still In the process of coming up surveys and experiments. 
+We now have a clear contract of interaction between slack bot and event handler.
+We finished most parts of the implementations of event handler and some parts of the slack bot. 
+We configured CI/CD pipeline, and reached a running version in the cloud. We added a test framework
+and implemented a test suite for the code we had so far. 
+
+
+Next Week
+Next week we should have a working version of our project, in order to reach the goal we will
+need to come up with a contract between event handler and GitHub module and finish implementing the event handler and slackbot.
+We will also add integration tests to the codebase.
+
+
+Meeting Agenda
+Software evaluation metrics feedback
+Report feedback in general
+Report / discuss project progress
+Advice / suggestions
