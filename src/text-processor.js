@@ -21,9 +21,16 @@ exports.extractCommand = (rawInput) => {
     }
 };
 
+// if unrecgnized command, return empty string
 exports.extractMessage = (rawInput) => {
-    let rawMessage = rawInput.trim().toLowerCase().slice(extractCommand(rawInput).length);
-    return trimQuotes(rawMessage);
+    let cleanInput = rawInput.trim().toLowerCase();
+    let command = cleanInput = extractCommand(rawInput);
+    if(command == "unrecognized") {
+        return "";
+    } else {
+        let rawMessage = cleanInput.slice(command.length);
+        return trimQuotes(rawMessage);
+    }
 
     function trimQuotes(rawMessage) {
         let result = rawMessage.trim();
