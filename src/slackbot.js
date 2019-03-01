@@ -42,7 +42,7 @@ exports.requestChanges = (command, message, payload) => {
 		"response_type": "in_channel",
 		"text": `request changes on pull request :exploding_head:`,
 		"attachments": [{
-			"text": `${message} by <@${payload.user_name}>`
+			"text": `${message}, by <@${payload.user_name}>`
 		}]
 	}
 }
@@ -52,7 +52,7 @@ exports.approve = (command, message, payload) => {
 		"response_type": "in_channel",
 		"text": `pull request approved :rocket:`,
 		"attachments": [{
-			"text":`${message} by <@${payload.user_name}>`
+			"text":`${message}, by <@${payload.user_name}>`
 		}]
 	};
 }
