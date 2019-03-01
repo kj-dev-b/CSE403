@@ -77,4 +77,96 @@ describe('text-processor', function() {
     });
   });
 
+
+  describe('#extractMessage', function() {
+    it('should find best code i\'ve ever seen :)', function() {
+    	var rawInput="comment \"best code i've ever seen :)\"";
+    	var expected="best code i've ever seen :)";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should find best code i\'ve ever seen :)', function() {
+    	var rawInput="comment123+ \"best code i've ever seen :)\"";
+    	var expected="best code i've ever seen :)";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should find best code i\'ve ever seen :)', function() {
+    	var rawInput="comment123- \"best code i've ever seen :)\"";
+    	var expected="best code i've ever seen :)";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should find best code i\'ve ever seen :)', function() {
+    	var rawInput="request changes \"best code i've ever seen :)\"";
+    	var expected="best code i\'ve ever seen :)";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should find best code i\'ve ever seen :)', function() {
+    	var rawInput="approve \"best code i've ever seen :)\"";
+    	var expected="best code i've ever seen :)";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should not recognize command and return empty string', function() {
+    	var rawInput="\"best code i've ever seen :)\"";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should not recognize command and return empty string', function() {
+    	var rawInput="please don't make a comment";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should not recognize command and return empty string', function() {
+    	var rawInput="commentblahblahblah- \"best code i've ever seen :)\"";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+    });
+
+    it('should find command in any caps with spaces', function() {
+    	var rawInput="     CoMMenT    \"best code i've ever seen :)\"";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+	});
+	
+	it('should best code i\'ve ever seen :)', function() {
+    	var rawInput="     CoMMenT    best code i've ever seen :)";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+	});
+
+	it('should best code i\'ve ever seen :)', function() {
+    	var rawInput="     CoMMenT    'best code i've ever seen :)'";
+    	var expected="";
+    	var actual=processor.extractCommand(rawInput);
+
+     	assert.equal(expected, actual);
+	});
+	
+  });
+
 });
