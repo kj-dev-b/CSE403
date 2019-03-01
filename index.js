@@ -36,10 +36,8 @@ app.post('/qreview', function(req, res) {
 
     const command = textProcessor.extractCommand(raw);
     const message = textProcessor.extractMessage(raw);
-    const response = (handler.handle(command, message));
+    const response = (handler.handle(command, message, req.body));
     res.send(response);
-
-    //res.send("qreview invoked!");
 });
 
 
