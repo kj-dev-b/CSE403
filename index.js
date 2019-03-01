@@ -20,8 +20,11 @@ app.get('/', (req, res) => {
 });
 
 app.post('/test', function(req, res) {
-    var payload = req.body;
-    res.send(bot.respond(payload));
+    const raw = req.body.text;
+    const command = textProcessor.extractCommand(raw);
+    const message = textProcessor.extractMessage(raw);
+    const response = (handler.handle(command, message));
+    res.send(response);
 })
 
 app.post('/qreview', function(req, res) {

@@ -24,7 +24,7 @@ function extractCommand(rawInput) {
 // if unrecgnized command, return empty string
 function extractMessage(rawInput) {
     let cleanInput = rawInput.trim().toLowerCase();
-    let command = cleanInput = extractCommand(rawInput);
+    let command = extractCommand(rawInput);
     if(command == "unrecognized") {
         return "";
     } else {
