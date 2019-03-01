@@ -55,7 +55,7 @@ When a review is created in GitHub, users are able to interact with it in Slack.
     * `users:read`
     * `chat:write:bot`
 3. Click on "Install App to Workspace"
-3. Navigate to the Slash Commands page and add a command (e.g., `/qreview`). Put anything for the request URL and short description for now.
+4. Navigate to the Slash Commands page and add a command (e.g., `/qreview`). Put anything for the request URL and short description for now.
 
 ##### Run locally
 1. Get the code
