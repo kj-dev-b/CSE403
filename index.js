@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var github = require('./src/github');
 var bot = require('./src/slackbot');
 var path = require('path');
+var githubHandler = require('./handlers/github')
 var port = process.env.PORT || 5000;
 
 const handler = require('./src/handler');
@@ -14,6 +15,8 @@ const app = express();
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
+
+app.use('/githubWebhook', githubHandler);
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
