@@ -1,7 +1,7 @@
 //const request = require('request');
 const axios = require('axios');
 // set up by "npm install superagent@3.5.2"
-const superagent = require('superagent');
+//const superagent = require('superagent');
 
 // new pull request
 // Argument
