@@ -8,17 +8,13 @@ const getPidByCid = fs.readFileSync('./sql/get-pid-by-cid.sql').toString();
 const insertNewRecord = fs.readFileSync('./sql/insert-new-record.sql').toString();
 
 
-//console.log(createTable);
 const client = new Client({
     connectionString: process.env.PGURI,
     ssl: true
 });
-//client.connect();
 
-// const res = await client.query('SELECT $1::text as message', ['Hello world!'])
-// console.log(res.rows[0].message) // Hello world!
-// await client.end()
-
+// create the following table
+// p2c(pid, cid)
 exports.createTable = async()=>{
     try {
         await client.connect();
@@ -30,6 +26,7 @@ exports.createTable = async()=>{
     }
 };
 
+// get channelId uniqly identified by pull request id
 exports.getCidByPid = async (pid) => {
     try {
         await client.connect();
@@ -44,6 +41,7 @@ exports.getCidByPid = async (pid) => {
     }
 };
 
+// get pull request id uniqly identified by channel id
 exports.getPidByCid = async (cid) => {
     try {
         await client.connect();
@@ -57,6 +55,7 @@ exports.getPidByCid = async (cid) => {
     }
 };
 
+// insert new record of pull request id and channel id, need to be unique.
 exports.insertNewRecord = async(pid, cid) => {
     try {
         await client.connect();
