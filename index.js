@@ -1,24 +1,50 @@
 require('dotenv').config();
-const express = require('express');
-const request = require('request');
-const bodyParser = require('body-parser');
-const github = require('./src/github');
-const bot = require('./src/slackbot');
-const port = process.env.PORT || 5000;
+var express = require('express');
+var request = require('request');
+var bodyParser = require('body-parser');
+var github = require('./src/github');
+var bot = require('./src/slackbot');
+var path = require('path');
+var githubHandler = require('./handlers/github')
+var port = process.env.PORT || 5000;
+
+const handler = require('./src/handler');
+var textProcessor = require('./src/text-processor');
 
 const app = express();
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true })); 
 
+app.use('/githubWebhook', githubHandler);
+
 app.get('/', (req, res) => {
-  github.message(res);
+  res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/test', function(req, res) {
-    var payload = req.body;
-    bot.respond(payload, res);
+    const raw = req.body.text;
+    const command = textProcessor.extractCommand(raw);
+    const message = textProcessor.extractMessage(raw);
+    const response = (handler.handle(command, message));
+    res.send(response);
 })
+
+app.post('/qreview', function(req, res) {
+    const raw = req.body.text;
+    // pass the request data
+    // raw only
+    // or add only
+    // add comment of what the request look like
+
+    const command = textProcessor.extractCommand(raw);
+    const message = textProcessor.extractMessage(raw);
+    const response = (handler.handle(command, message));
+    res.send(response);
+
+    //res.send("qreview invoked!");
+});
+
 
 app.get('/oauth', function(req, res) {
     if (!req.query.code) {

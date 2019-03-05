@@ -1,3 +1,3 @@
-exports.message = (res) => {
-	res.send("from github");
+exports.message = (payload) => {
+	return "Hello from GitHub!";
 }

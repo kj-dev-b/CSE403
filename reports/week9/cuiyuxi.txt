@@ -1,0 +1,19 @@
+CSE 403
+Individual Status Report
+Yuxi Cui
+
+Last Week Summary
+1. Keep looking for more evidence for project's claim.
+2. Come up with a contract with GitHub module
+3. Finish event handler
+
+Current Week Progress
+Came up with a more refined methodology in how to measure the effectivity of the project.
+Started design survey questions.
+Helped in implementing slackbot.
+Iterrated text processor and event handler, waiting for GitHub module for final draft.
+
+Next Week Plan
+1. Finish implementation
+2. Script for generating metrics from test data
+3. Test Suite Generation

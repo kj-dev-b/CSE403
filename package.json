@@ -5,18 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "concurrently --kill-others \"npm start\" \"npm run ngrok\"",
+    "dev": "concurrently --kill-others \"nodemon index.js\" \"npm run ngrok\"",
     "ngrok": "./ngrok http 5000 & ./scripts/url.sh",
-    "test": "echo running tests"
+    "test": "mocha --recursive test/",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha test/ --recursive"
   },
   "dependencies": {
+    "@octokit/webhooks": "^5.3.3",
     "axios": "^0.18.0",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
+    "pg": "^7.8.1",
     "request": "^2.88.0"
   },
   "engines": {
-    "node": "4.0.0"
+    "node": "11.0.0"
   },
   "repository": {
     "type": "git",
@@ -34,6 +37,9 @@
     "Ethan Cui"
   ],
   "devDependencies": {
-    "concurrently": "^4.1.0"
+    "concurrently": "^4.1.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
   }
 }

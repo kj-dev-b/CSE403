@@ -1,0 +1,16 @@
+CSE 403
+Individual Status Report #5
+Annabelle Zha
+
+Section 1 - Last Week:
+I shoud definitely start actually coding and add more features to our bot next week. 
+For the team I hope we can continue to add more citations to our report to support
+the claims and assumptions we made, also we should come up with a better user study plan.
+
+Section 2 - Current Week:
+I discussed with the member who is in charge of the event handler about implement
+specifications (ie. how our code should interact). I also wrote some implementations
+for our slack bot.
+
+Section 3: Next Week
+For the incoming week I need to finish the implementation and testing of my part.

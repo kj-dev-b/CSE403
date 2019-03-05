@@ -1,0 +1,12 @@
+CSE 403
+Individual Status Report week 9
+Tim Chirananthavat
+
+Last Week Summary
+I hope to nail down the exact program behavior and organization. One other thing that I have to look into is whether we need a database to store data. There's still the issue of "posting on behalf of a user" that is still unsolved.
+
+Current Week Progress
+I have been figuring out how to organize the code. (In the process, I have also decided to switch from using Probot to Octokit, as the former cannot be easily integrated with other code.) After doing so, I implemented the outlines of how the github API code should be. Currently, the code can detect when a pull request is created on Github.
+
+Next Week Plan
+I will try to complete most or all of the code that interacts with the github API. In particular, I want to make sure that I have code that will allow our program to post comments to Github. (I believe that if I can do this, then other parts should be relatively easy.)

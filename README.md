@@ -1,5 +1,7 @@
 # Q Review
 
+[![Build Status](https://travis-ci.com/KeegJordan/CSE403.svg?branch=master)](https://travis-ci.com/KeegJordan/CSE403)
+
 ## End User Manual
 1. Go to slack.com/apps and search for QReview (TODO, please use instructions for running locally below for now)
 2. Install QReview to your workplace
@@ -53,17 +55,37 @@ When a review is created in GitHub, users are able to interact with it in Slack.
     * `users:read`
     * `chat:write:bot`
 3. Click on "Install App to Workspace"
-3. Navigate to the Slash Commands page and add a command (e.g., `/qreview`). Put anything for the request URL and short description for now.
+4. Navigate to the Slash Commands page and add a command (e.g., `/qreview`). Put anything for the request URL and short description for now.
+
+###### Create a Github app
+
+1. Create an app at https://github.com/settings/apps
+	* Choose a name of your choice.
+    * Just put anything for the "Homepage URL" and "User authorization callback
+      URL". We don't need them.
+    * Put anything for the "Webhook URL" for now.
+    * Choose something for the webhook secret. (For development, I used
+      "my_github_secret")
+    * In the "Permissions" section, give "Read & Write" access for "Pull
+      Requests".
+    * In the "Subscribe to events" section, check "Pull request".
+2. Once you have created the app, click on "Install App" and install the app.
+   Choose "Only Select Repositories" to install it to a repository of your
+   choice. (For development, I created a new repo that doesn't actually have any
+   code.)
 
 ##### Run locally
 1. Get the code
     * Clone this repo and run `npm install` Information page) (install npm first if you havn't, available at here:          	  https://www.npmjs.com/get-npm)
-1. If you're running the app locally:
-		1. You must have ngrok installed in order to run the app locally: ([install ngrok](https://ngrok.com/download))
-    1. Start the dev environment by running `npm run dev`
+2. Copy the `.env-sample` file to `.env`. In the newly-created `.env` file,
+   replace "my_github_secret" with your actual github webhook secret.
+3. Start the dev environment by running `npm run dev`
 
 ##### Enable Q Review
 1. Go back to the app settings and click on Q Review.
-2. Navigate to the Slash Commands page and set the Request URL to your ngrok URL (printed by `npm run dev`) + /test
+2. Navigate to the Slash Commands page in the slack app settings and set the Request URL to your ngrok URL (printed by `npm run dev`) + /test
     * For example, `https://ade1f065.ngrok.io/test`
-3. You should now be able to try out the command in Slack.
+3. In your Github app setting (at github.com/settings/apps), change the "Webhook URL" to your ngrok URL + /githubWebhook
+	* For example, `https://ade1f065.ngrok.io/githubWebhook`
+4. You should now be able to try out the command in Slack. Additionally, it will
+   log when a pull request is made on the repo.

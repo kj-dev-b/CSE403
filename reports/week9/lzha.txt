@@ -1,0 +1,15 @@
+CSE 403
+Individual Status Report #6
+Annabelle Zha
+
+Section 1 - Last Week:
+For the incoming week I need to finish the implementation and testing of my part.
+
+Section 2 - Current Week:
+This week my focus is still on coding. I went over the first version of my code with my teammates
+and received some feedback. After that I have done some major modifications to slackbot.js. 
+My implementation is mostly done now but haven't written unit tests for them yet. Some parts are
+potentially buggy. 
+
+Section 3: Next Week
+Next week my goal is to gather data for our user study, finish testing of my part, and distribute the app.
