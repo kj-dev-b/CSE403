@@ -3,7 +3,7 @@ var processor = require('../src/text-processor');
 
 describe('text-processor', function() {
 
-  describe('#extractCommand', function() {
+  describe.skip('#extractCommand', function() {
     it('should find comment at start of string', function() {
     	var rawInput="comment \"best code i've ever seen :)\"";
     	var expected="comment";
@@ -78,7 +78,7 @@ describe('text-processor', function() {
   });
 
 
-  describe('#extractMessage', function() {
+  describe.skip('#extractMessage', function() {
     it('should find best code i\'ve ever seen :)', function() {
     	var rawInput="comment \"best code i've ever seen :)\"";
     	var expected="best code i've ever seen :)";
