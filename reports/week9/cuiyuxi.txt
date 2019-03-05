@@ -10,7 +10,7 @@ Last Week Summary
 Current Week Progress
 Came up with a more refined methodology in how to measure the effectivity of the project.
 Started design survey questions.
-Helped Annabelle in implementing slackbot.
+Helped in implementing slackbot.
 Iterrated text processor and event handler, waiting for GitHub module for final draft.
 
 Next Week Plan
