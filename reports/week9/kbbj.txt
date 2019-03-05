@@ -1,0 +1,16 @@
+CSE 403
+Individual Status Report #6
+Keegan Jordan
+
+Section 1 - Last Week:
+Last week I gave a presentation, created new unit tests and 
+set up code coverage for our project.
+
+Section 2 - Current Week:
+This week I'm focusing on getting the end to end tests working
+correcctly and running on multiple environments with a data
+store in place.
+
+Section 3: Next Week
+Next week I will test our application with users and publish the 
+app to the slack app directory. 
