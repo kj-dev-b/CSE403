@@ -4,12 +4,10 @@ const axios = require('axios');
 // Argument
 // - pName: project name
 // - prNum: Pull request #
-// - cEmail: contributor's email address
-// - rEmails: a list of reviewers' email address
-// - code: content of pull request
-// - language: language of the code
+// - email: contributor's email address
+// - code: diff of the code
 // - commitNum: commit # of pull request
-exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
+exports.newPR = (pName, prNum, email, code, commitNum) => {
 	var data = {
 		channelId: '',
 		channelName: '',
@@ -38,11 +36,10 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 		data.channelId = res.body.group.id;
 		data.channelName = res.body.group.name;
 		
-		// get users list 
-		return axios.get('https://slack.com/api/users.list', {
-			params: {
-			  token: SLACK_TOKEN,			  
-			}
+		// look up contributor's user info by email
+		return axios.get('https://slack.com/api/users.lookupByEmail', {
+			token: SLACK_TOKEN,
+			email: email
 		});
 	})
 	.then((res) => {
@@ -55,27 +52,14 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 			return;
 		}
 		// success
-		// loop the users list to find users with the given emails
-		var ids = [];
-		for (var i = 0; i < res.body.members.length; ++i) {
-			// find reviewers, push ids to list
-			for (var j = 0; j < rEmails.length; ++j) {
-				if (res.body.members[i].profile.email === rEmails[j]) {
-					ids.push(res.body.members[i].id);
-				}
-			}
-			// find contributor, push id to list, save their id/name
-			if (res.body.members[i].profile.email === cEmail) {
-				ids.push(res.body.members[i].id);
-				data.contributorId = res.body.members[i].id;
-				data.contributorName = res.body.members[i].name;
-			}
-		}
-		// invite involved users
+		// save user info
+		data.contributorId = res.body.user.id;
+		data.channelName = res.body.user.name;
+		// invite user
 		return axios.post('https://slack.com/api/groups.invite', {
 			token: SLACK_TOKEN,
 			cannel: data.channelId,
-			users: ids
+			user: data.contributorId
 		});
 	})
 	.then((res) => {
@@ -113,7 +97,7 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 			token: SLACK_TOKEN,
 			channel: data.channelId,
 			content: code,
-			filetype: language,
+			filetype: 'diff',
 			title: commitNum
 		});
 	})
@@ -134,8 +118,38 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 	})
 }
 
+/*
+// channelId: the channel to invite users to
+// emails: a list of emails of the reviewers
+exports.inviteReviewers = (channelId, emails) => {
+	return axios.get('https://slack.com/api/users.list', {
+			params: {
+			  token: SLACK_TOKEN,			  
+			}
+		});
+	var ids = [];
+		for (var i = 0; i < res.body.members.length; ++i) {
+			// find reviewers, push ids to list
+			for (var j = 0; j < rEmails.length; ++j) {
+				if (res.body.members[i].profile.email === rEmails[j]) {
+					ids.push(res.body.members[i].id);
+				}
+			}
+			// find contributor, push id to list, save their id/name
+			if (res.body.members[i].profile.email === cEmail) {
+				ids.push(res.body.members[i].id);
+				data.contributorId = res.body.members[i].id;
+				data.contributorName = res.body.members[i].name;
+			}
+		}
+}
+*/
+
 // changes added to pull request
-exports.changesAddedPR = (channelId, code, language, commitNum) => {
+// channelId: the channel to send message to
+// code: diff of the code
+// commitNum: commit # of the latest change
+exports.changesAddedPR = (channelId, code, commitNum) => {
 	// send message to channel
 	axios.post('https://slack.com/api/chat.postMessage', {
 			token: SLACK_TOKEN,
@@ -158,7 +172,7 @@ exports.changesAddedPR = (channelId, code, language, commitNum) => {
 			token: SLACK_TOKEN,
 			channel: channelId,
 			content: code,
-			filetype: language,
+			filetype: 'diff',
 			title: commitNum
 		});
 	})
