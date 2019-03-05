@@ -11,6 +11,7 @@
     "coverage": "istanbul cover node_modules/mocha/bin/_mocha test/ --recursive"
   },
   "dependencies": {
+    "@octokit/webhooks": "^5.3.3",
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "request": "^2.88.0"
