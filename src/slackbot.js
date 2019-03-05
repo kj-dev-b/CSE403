@@ -1,7 +1,4 @@
-//const request = require('request');
 const axios = require('axios');
-// set up by "npm install superagent@3.5.2"
-//const superagent = require('superagent');
 
 // new pull request
 // Argument
@@ -82,6 +79,7 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 		});
 	})
 	.then((res) => {
+		console.log(`statusCode: ${res.statusCode}`);
 		// log result
 		console.log(res.body.ok);
 		// request failed
@@ -100,6 +98,7 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 		});
 	})
 	.then ((res) => {
+		console.log(`statusCode: ${res.statusCode}`);
 		// log result
 		console.log(res.body.ok);
 		// request failed
@@ -119,6 +118,7 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
 		});
 	})
 	.then ((res) => {
+		console.log(`statusCode: ${res.statusCode}`);
 		// log result
 		console.log(res.body.ok);
 		// request failed
@@ -133,142 +133,52 @@ exports.newPR = (pName, prNum, cEmail, rEmails, code, language, commitNum) => {
   		console.error(error);
 	})
 }
-	/*
-	var ret = {
-		json: {}
-	};
-	callback = (body) => {ret.json = JSON.parse(body)};
 
-	// create a channel
-	var createChannelObj = {
-		json: {
+// changes added to pull request
+exports.changesAddedPR = (channelId, code, language, commitNum) => {
+	// send message to channel
+	axios.post('https://slack.com/api/chat.postMessage', {
 			token: SLACK_TOKEN,
-		  // name of channel = name of project - pull request #
-			name: `${pName} - ${prNum}`
-		}
-	};
-	sendPostReq('https://slack.com/api/groups.create', createChannelObj.json, callback);
-	
-	// save channel info
-	data.channelId = ret.json.id;
-	data.channelName = res.json.name;
-
-	// get contributor's info from email and invite
-	var lookupByEmailObj = {
-		json : {
-			token: SLACK_TOKEN,
-			// email address
-			name: cEmail
-		}
-	};
-	sendGetQeq('https://slack.com/api/users.lookupByEmail', lookupByEmailObj.json, callback);
-
-	// save contributor info
-	data.contributorId = ret.json.user.id;
-	data.contributorName = ret.json.user.name;
-
-	// invite contributor
-	var inviteContributorObj = {
-		token: SLACK_TOKEN,
-		channel: data.channelId,
-		user: data.contributorId
-	};
-	sendPostReq('https://slack.com/api/groups.invite', inviteContributorObj.json);
-
-	// get each reviewer's info from email and invite them
-	var i;
-	for (i = 0; i < rEmails.length; ++i) {
-
-		// look up reviewer's info by email
-		var lookupReviewersByEmailObj = {
-			json : {
-				token: SLACK_TOKEN,
-				// email address
-				name: rEmails[i]
-			}
-		};
-		sendGetQeq('https://slack.com/api/users.lookupByEmail', lookupReviewersByEmailObj.json, callback);
-
-		// invite user by id
-		var inviteReviewerObj = {
-			token: SLACK_TOKEN,
-			channel: data.channelId,
-			user: ret.json.user.id
-		};
-		sendPostReq('https://slack.com/api/groups.invite', inviteReviewerObj.json);
-	}
-
-	// send welcome message to channel
-	var sendMessageObj = {
-		json : {
-			token: SLACK_TOKEN,
-			channel: data.channelId,
-			text: `Welcome to ${data.channelName}! You have a new pull request
-			 	awaiting review from <@${data.contributorId}>. Here is the snippet:`
-		}
-	};
-	sendPostReq('https://slack.com/api/chat.postMessage', sendMessageObj.json);
-	
-	// send code snippet
-	var sendCodeObj = {
-		json: {
-			token: SLACK_TOKEN,
-			channel: data.channelId,
-			content: code,
-			filetype: language,
-			title: commitNum
-		}
-	};
-	sendPostReq('https://slack.com/api/files.upload', sendCodeObj.json);*/
-/*
-// helper function
-// send HTTP GET request
-function sendGetQeq(url, param) {
-	superagent.get(url)
-		.query(param).end((err, res) => {
-			if (err) { return console.log(err); }
-			// log result
-			console.log(res.body.ok);
-			// request failed
-			if (res.body.ok === false) {
-				// log error
-				console.log(res.body.error);
-				return;
-			}
-			// success 
-			callback(res.body)
-		});
-}; 
-
-// helper function
-// send HTTP POST request
-function sendPostReq(url, obj) {
-	request.post(url, obj, (error, res, body) => {
-		if (error) {
-			console.error(error)
-			return;
-		}
+			channel: channelId,
+			text: `Changes were made to this pull request by <@${data.contributorId}>`
+	})
+	.then ((res) => {
 		console.log(`statusCode: ${res.statusCode}`);
 		// log result
-		console.log(body.ok);
+		console.log(res.body.ok);
 		// request failed
-		if (body.ok === false) {
+		if (res.body.ok === false) {
 			// log error
-			console.log(body.error);
+			console.log(res.body.error);
 			return;
 		}
 		// success
-		callback(body);
-	});
-};
-*/
-
-// changes added to pull request
-exports.changesAddedPR = (prNum, code, language, commitNum) => {
-	// send message to channel
-	// send code snippet
-	return;
-};
+		// send new code snippet
+		return axios.post('https://slack.com/api/files.upload', {
+			token: SLACK_TOKEN,
+			channel: channelId,
+			content: code,
+			filetype: language,
+			title: commitNum
+		});
+	})
+	.then ((res) => {
+		console.log(`statusCode: ${res.statusCode}`);
+		// log result
+		console.log(res.body.ok);
+		// request failed
+		if (res.body.ok === false) {
+			// log error
+			console.log(res.body.error);
+			return;
+		}
+		// success
+	})
+	.catch((error) => {
+  		console.error(error);
+	})
+	
+}
 
 exports.respond = (payload, res) => {
 	res.send("Hello, " + payload.user_name + "!");
