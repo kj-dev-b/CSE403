@@ -1,5 +1,34 @@
 const axios = require('axios');
 
+async function createChannel(pName, prNum) {
+	axios.post('https://slack.com/api/groups.create', {
+		token: SLACK_TOKEN,
+		// name of channel = name of project - pull request #
+		name: `${pName} - ${prNum}`
+	})
+	.then((res) => {
+  		console.log(`statusCode: ${res.statusCode}`);
+		// log result
+		console.log(res.body.ok);
+		// request failed
+		if (res.body.ok === false) {
+			// log error
+			console.log(res.body.error);
+			return;
+		}
+		// success
+		let result = {
+			channelID: res.body.group.id,
+			channelName: res.body.group.name
+		}
+		return result;
+	})
+	.catch()
+}
+
+async function inviteReviewers {
+	rerturn;
+}
 // new pull request
 // Argument
 // - pName: project name
@@ -7,7 +36,10 @@ const axios = require('axios');
 // - email: contributor's email address
 // - code: diff of the code
 // - commitNum: commit # of pull request
-exports.newPR = (pName, prNum, email, code, commitNum) => {
+exports.newPR = async (pName, prNum, email, code, commitNum) => {
+	let channelID = await createChannel();
+	//get user id
+	await inviteReviewers(channelID);
 	var data = {
 		channelId: '',
 		channelName: '',
@@ -15,6 +47,7 @@ exports.newPR = (pName, prNum, email, code, commitNum) => {
 		contributorName: ''
 	};
 
+	
 	// create channel
 	axios.post('https://slack.com/api/groups.create', {
 		token: SLACK_TOKEN,
