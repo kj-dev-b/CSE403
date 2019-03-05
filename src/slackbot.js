@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function createChannel(pName, prNum) {
+exports.createChannel = async (pName, prNum) => {
 	axios.post('https://slack.com/api/groups.create', {
 		token: SLACK_TOKEN,
 		// name of channel = name of project - pull request #
@@ -29,9 +29,6 @@ async function createChannel(pName, prNum) {
   	})
 }
 
-async function inviteReviewers {
-	rerturn;
-}
 // new pull request
 // Argument
 // - pName: project name
