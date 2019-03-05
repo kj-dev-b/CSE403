@@ -30,6 +30,10 @@ app.post('/test', function(req, res) {
     res.send(response);
 })
 
+app.post('/createNewChannel', function(req, res) {
+    bot.createChannel('qreview', '123');
+});
+
 app.post('/qreview', function(req, res) {
     const raw = req.body.text;
     // pass the request data

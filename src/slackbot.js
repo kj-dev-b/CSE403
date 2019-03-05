@@ -17,13 +17,16 @@ async function createChannel(pName, prNum) {
 			return;
 		}
 		// success
+		console.log(res.body);
 		let result = {
 			channelID: res.body.group.id,
 			channelName: res.body.group.name
 		}
 		return result;
 	})
-	.catch()
+	.catch((error) => {
+		console.error(error);
+  	})
 }
 
 async function inviteReviewers {
