@@ -53,12 +53,11 @@ async function inviteUser(channelId, userId) {
   	})
 }
 
-async function sendMessage(channelId, channelName, contributorId) {
+async function sendMessage(channelId, text) {
 	axios.post('https://slack.com/api/chat.postMessage', {
 			token: SLACK_TOKEN,
 			channel: channelId,
-			text: `Welcome to ${channelName}! You have a new pull request
-			 	awaiting review from <@${contributorId}>. Here is the snippet:`
+			text: text
 	})
 	.then((res) => {
 		console.log(`statusCode: ${res.statusCode}`);
@@ -119,14 +118,16 @@ exports.sendSnippet = sendSnippet;
 exports.newPR = async (pName, prNum, contributor, code, commitNum) => {
 	let channelInfo = await createChannel(pName, prNum);
 	await inviteUser(channelInfo.channelId, contributor.id);
-	await sendMessage(channelInfo.channelId, channelInfo.channelName, contributor.id);
+	text = `Welcome to ${channelName}! You have a new pull request
+	awaiting review from <@${contributorId}>. Here is the snippet:`;
+	await sendMessage(channelInfo.channelId, text);
 	await sendSnippet(channelInfo.channelId, code, commitNum);		
 }
 
 
 // channelId: the channel to invite users to
 // emails: a list of emails of the reviewers
-exports.inviteReviewers = (channelId, emails) => {
+exports.inviteReviewers = (channelId, ids) => {
 	return;
 }
 
@@ -136,47 +137,9 @@ exports.inviteReviewers = (channelId, emails) => {
 // commitNum: commit # of the latest change
 exports.changesAddedPR = (channelId, code, commitNum) => {
 	// send message to channel
-	axios.post('https://slack.com/api/chat.postMessage', {
-			token: SLACK_TOKEN,
-			channel: channelId,
-			text: `Changes were made to this pull request by <@${data.contributorId}>`
-	})
-	.then ((res) => {
-		console.log(`statusCode: ${res.statusCode}`);
-		// log result
-		console.log(res.body.ok);
-		// request failed
-		if (res.body.ok === false) {
-			// log error
-			console.log(res.body.error);
-			return;
-		}
-		// success
-		// send new code snippet
-		return axios.post('https://slack.com/api/files.upload', {
-			token: SLACK_TOKEN,
-			channel: channelId,
-			content: code,
-			filetype: 'diff',
-			title: commitNum
-		});
-	})
-	.then ((res) => {
-		console.log(`statusCode: ${res.statusCode}`);
-		// log result
-		console.log(res.body.ok);
-		// request failed
-		if (res.body.ok === false) {
-			// log error
-			console.log(res.body.error);
-			return;
-		}
-		// success
-	})
-	.catch((error) => {
-  		console.error(error);
-	})
-	
+	text = `Changes were made to this pull request by <@${data.contributorId}>`;
+	await sendMessage(channelId, text);
+	await sendSnippet(channelId, code, commitNum);
 }
 
 exports.comment = (command, message, payload) => {
