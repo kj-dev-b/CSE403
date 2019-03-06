@@ -9,14 +9,13 @@ const getGitHubNameByUid = fs.readFileSync('./src/sql/get-githubname-by-uid.sql'
 const getUidByGitHubName = fs.readFileSync('./src/sql/get-uid-by-githubname.sql').toString();
 const insertNewRecord = fs.readFileSync('./src/sql/insert-new-record.sql').toString();
 
-
 const client = new Client({
     connectionString: process.env.PGURI,
-    host: "ec2-54-221-231-167.compute-1.amazonaws.com",
-    database: 'd74is3duodvlp6',
-    user: 'cmatqckkzxkaxt',
-    port: 5432, 
-    password: '03f79df4be68537e2eb9794af872684c5d1ea77559434e7439bee592fc3f1fed',
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    user: process.env.USER,
+    port: process.env.DB_PORT, 
+    password: process.env.DB_PASSWORD,
     ssl: true
 });
 
