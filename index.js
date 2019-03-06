@@ -42,9 +42,23 @@ app.post('/qreview', async function(req, res) {
         const message = textProcessor.extractMessage(raw);
         const response = (handler.handle(command, message));
         res.send(response);
+    } else if(textProcessor.extractCommand(raw)==="configure") {
+        const newGithubUser = textProcessor.extractMessage(raw);
+        console.log("new-user", newGithubUser);
+        console.log(req.body.user_id);
+        db.insertNewUser(req.body.user_id, newGithubUser)
+        .then(res=>{
+            res.send(`github user ${newGithubUser} added to your account! :clap:`);
+        })
+        .catch(err=>{
+            console.log(err);
+            res.send("something wemt wrong!");
+        });
+        // await db.insertNewUser(req.body.user_id, newGithubUser);
+        // res.send(`github user ${newGithubUser} added to your account! :clap:`);
+    } else {
+        res.send(bot.newUser(req.body));
     }
-    res.send(bot.newUser(req.body));
-    //res.send("qreview invoked!");
 });
 
 

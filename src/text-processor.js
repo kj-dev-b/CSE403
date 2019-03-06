@@ -16,7 +16,9 @@ function extractCommand(rawInput) {
         return "approve";
     } else if(cleanInput.startsWith("help")) {
         return "help";
-    } else {
+    } else if(cleanInput.startsWith("configure")) {
+        return "configure";
+    }else {
         return "unrecognized"
     }
 };

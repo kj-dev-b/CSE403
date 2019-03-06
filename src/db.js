@@ -7,10 +7,11 @@ const getCidByPid = fs.readFileSync('./src/sql/get-cid-by-pid.sql').toString();
 const getPidByCid = fs.readFileSync('./src/sql/get-pid-by-cid.sql').toString();
 const getGitHubNameByUid = fs.readFileSync('./src/sql/get-githubname-by-uid.sql').toString();
 const insertNewRecord = fs.readFileSync('./src/sql/insert-new-record.sql').toString();
+const insertNewUser = fs.readFileSync('./src/sql/insert-new-user.sql').toString();
 
 
 const client = new Client({
-    connectionString: process.env.PGURI,
+    //connectionString: process.env.PGURI,
     host: "ec2-54-221-231-167.compute-1.amazonaws.com",
     database: 'd74is3duodvlp6',
     user: 'cmatqckkzxkaxt',
@@ -18,6 +19,8 @@ const client = new Client({
     password: '03f79df4be68537e2eb9794af872684c5d1ea77559434e7439bee592fc3f1fed',
     ssl: true
 });
+
+
 
 // create the following table
 // p2c(pid, cid)
@@ -58,6 +61,7 @@ exports.getPidByCid = async (cid) => {
         return pid;
     } catch(err) {
         console.log(err.stack);
+        await client.end();
     }
 };
 
@@ -71,6 +75,7 @@ exports.getGitHubNameByUid = async (uid) => {
         return githubName;
     } catch(err) {
         console.log(err.stack);
+        await client.end();
     }
 }
 
@@ -81,6 +86,20 @@ exports.insertNewRecord = async(pid, cid) => {
         const res = await client.query(insertNewRecord, [pid, cid]);
         console.log("res:", res);
         await client.end();
+    } catch(err) {
+        console.log(err.stack);
+        await client.end();
+    }
+};
+
+// insert new record of pull request id and channel id, need to be unique.
+exports.insertNewUser = async(uid, githubName) => {
+    try {
+        await client.connect();
+        const res = await client.query(insertNewUser, [uid, githubName]);
+        console.log("res:", res);
+        await client.end();
+        //return res;
     } catch(err) {
         console.log(err.stack);
         await client.end();
