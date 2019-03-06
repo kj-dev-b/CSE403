@@ -1,10 +1,5 @@
-1. current pull request review process opinion
+1. What methods do you currently use to complete code reviews?
 
-2. give a rating from 1-10 of how easy it is to complete a pull request using current process
+2. Give a rating from 1-10 of how easy it is to complete a review with your prefered method
 
-3. which part of the code review process do you think needs most imrpovement
-
-introduce qreview
-
-4. give a rating from 1-10 of how easy it is to complete a pull request using qreview
-
+3. Which part of the code review process do you think needs most improvement?

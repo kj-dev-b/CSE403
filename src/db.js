@@ -6,17 +6,17 @@ const createTable = fs.readFileSync('./src/sql/create-table.sql').toString();
 const getCidByPid = fs.readFileSync('./src/sql/get-cid-by-pid.sql').toString();
 const getPidByCid = fs.readFileSync('./src/sql/get-pid-by-cid.sql').toString();
 const getGitHubNameByUid = fs.readFileSync('./src/sql/get-githubname-by-uid.sql').toString();
+const getUidByGitHubName = fs.readFileSync('./src/sql/get-uid-by-githubname.sql').toString();
 const insertNewRecord = fs.readFileSync('./src/sql/insert-new-record.sql').toString();
 const insertNewUser = fs.readFileSync('./src/sql/insert-new-user.sql').toString();
 
-
 const client = new Client({
-    //connectionString: process.env.PGURI,
-    host: "ec2-54-221-231-167.compute-1.amazonaws.com",
-    database: 'd74is3duodvlp6',
-    user: 'cmatqckkzxkaxt',
-    port: 5432, 
-    password: '03f79df4be68537e2eb9794af872684c5d1ea77559434e7439bee592fc3f1fed',
+    connectionString: process.env.PGURI,
+    host: process.env.HOST,
+    database: process.env.DATABASE,
+    user: process.env.USER,
+    port: process.env.DB_PORT, 
+    password: process.env.DB_PASSWORD,
     ssl: true
 });
 
@@ -76,6 +76,19 @@ exports.getGitHubNameByUid = async (uid) => {
     } catch(err) {
         console.log(err.stack);
         await client.end();
+    }
+}
+
+exports.getUidByGitHubName = async (githubName) => {
+    try {
+        await client.connect();
+        const res = await client.query(getUidByGitHubName, [githubName]);
+        const uid = res.rows[0];
+        console.log("slack_uid: ", uid);
+        await client.end();
+        return uid;
+    } catch(err) {
+        console.log(err.stack);
     }
 }
 
