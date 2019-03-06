@@ -6,6 +6,7 @@ const createTable = fs.readFileSync('./src/sql/create-table.sql').toString();
 const getCidByPid = fs.readFileSync('./src/sql/get-cid-by-pid.sql').toString();
 const getPidByCid = fs.readFileSync('./src/sql/get-pid-by-cid.sql').toString();
 const getGitHubNameByUid = fs.readFileSync('./src/sql/get-githubname-by-uid.sql').toString();
+const getUidByGitHubName = fs.readFileSync('./src/sql/get-uid-by-githubname.sql').toString();
 const insertNewRecord = fs.readFileSync('./src/sql/insert-new-record.sql').toString();
 
 
@@ -69,6 +70,19 @@ exports.getGitHubNameByUid = async (uid) => {
         console.log("github_name: ", githubName);
         await client.end();
         return githubName;
+    } catch(err) {
+        console.log(err.stack);
+    }
+}
+
+exports.getUidByGitHubName = async (githubName) => {
+    try {
+        await client.connect();
+        const res = await client.query(getUidByGitHubName, [githubName]);
+        const uid = res.rows[0];
+        console.log("slack_uid: ", uid);
+        await client.end();
+        return uid;
     } catch(err) {
         console.log(err.stack);
     }
