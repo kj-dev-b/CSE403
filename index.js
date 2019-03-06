@@ -37,12 +37,7 @@ app.post('/qreview', async function(req, res) {
     // or add only
     // add comment of what the request look like
     githubUser = await db.getGitHubNameByUid(req.body.user_id);
-    if (githubUser) {
-        const command = textProcessor.extractCommand(raw);
-        const message = textProcessor.extractMessage(raw);
-        const response = (handler.handle(command, message));
-        res.send(response);
-    } else if(textProcessor.extractCommand(raw)==="configure") {
+    if(textProcessor.extractCommand(raw)==="configure") {
         const newGithubUser = textProcessor.extractMessage(raw);
         console.log("new-user", newGithubUser);
         console.log(req.body.user_id);
@@ -57,6 +52,11 @@ app.post('/qreview', async function(req, res) {
         });
         // await db.insertNewUser(req.body.user_id, newGithubUser);
         // res.send(`github user ${newGithubUser} added to your account! :clap:`);
+    } else if (githubUser) {
+        const command = textProcessor.extractCommand(raw);
+        const message = textProcessor.extractMessage(raw);
+        const response = (handler.handle(command, message));
+        res.send(response);
     } else {
         res.send(bot.newUser(req.body));
     }

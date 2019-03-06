@@ -13,9 +13,9 @@ const insertNewUser = fs.readFileSync('./src/sql/insert-new-user.sql').toString(
 const client = new Client({
     connectionString: process.env.PGURI,
     host: process.env.HOST,
-    database: process.env.DATABASE,
+    database: process.env.DATABASE, 
     user: process.env.USER,
-    port: process.env.DB_PORT, 
+    port: process.env.DB_PORT,  
     password: process.env.DB_PASSWORD,
     ssl: true
 });
