@@ -48,14 +48,14 @@ app.post('/qreview', async function(req, res) {
         })
         .catch(err=>{
             console.log(err);
-            res.send("something wemt wrong!");
+            res.send("something went wrong!");
         });
         // await db.insertNewUser(req.body.user_id, newGithubUser);
         // res.send(`github user ${newGithubUser} added to your account! :clap:`);
     } else if (githubUser) {
         const command = textProcessor.extractCommand(raw);
         const message = textProcessor.extractMessage(raw);
-        const response = (handler.handle(command, message));
+        const response = (handler.handle(command, message, req.body));
         res.send(response);
     } else {
         res.send(bot.newUser(req.body));
