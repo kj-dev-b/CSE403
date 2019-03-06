@@ -6,10 +6,10 @@ var github = require('./src/github');
 var bot = require('./src/slackbot');
 var path = require('path');
 var githubHandler = require('./handlers/github')
-var port = process.env.PORT || 5000;
-
-const handler = require('./src/handler');
+var db = require('./src/db');
+var handler = require('./src/handler');
 var textProcessor = require('./src/text-processor');
+var port = process.env.PORT || 5000;
 
 const app = express();
 
@@ -30,18 +30,20 @@ app.post('/test', function(req, res) {
     res.send(response);
 })
 
-app.post('/qreview', function(req, res) {
+app.post('/qreview', async function(req, res) {
     const raw = req.body.text;
     // pass the request data
     // raw only
     // or add only
     // add comment of what the request look like
-
-    const command = textProcessor.extractCommand(raw);
-    const message = textProcessor.extractMessage(raw);
-    const response = (handler.handle(command, message));
-    res.send(response);
-
+    githubUser = await db.getGitHubNameByUid(req.body.user_id);
+    if (githubUser) {
+        const command = textProcessor.extractCommand(raw);
+        const message = textProcessor.extractMessage(raw);
+        const response = (handler.handle(command, message));
+        res.send(response);
+    }
+    res.send(bot.newUser(req.body));
     //res.send("qreview invoked!");
 });
 

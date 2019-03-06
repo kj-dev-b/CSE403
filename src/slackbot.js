@@ -241,3 +241,9 @@ exports.help = (command, message, payload) => {
 exports.unrecognized = (command, message, payload) => {
 	return "Command not recognized, try saying `help`!";
 }
+
+exports.newUser = (payload) => {
+	return `Hi! Seems like you're new here. Use the command
+\`/qreview configure <YOUR GITHUB USERNAME>\`
+in order to start working with Q Review`
+}
