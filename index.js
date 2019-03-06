@@ -31,7 +31,8 @@ app.post('/test', function(req, res) {
 })
 
 app.post('/createNewChannel', function(req, res) {
-    bot.createChannel('qreview', '123');
+    let result = bot.createChannel('qreview', '123');
+    console.log(result);
 });
 
 app.post('/qreview', function(req, res) {
