@@ -47,7 +47,8 @@ app.post('/qreview', async function(req, res) {
         console.log("new-user", newGithubUser);
         console.log(req.body.user_id);
         db.insertNewUser(req.body.user_id, newGithubUser)
-        .then(res=>{
+        .then(result=>{
+            console.log(result);
             res.send(`github user ${newGithubUser} added to your account! :clap:`);
         })
         .catch(err=>{
