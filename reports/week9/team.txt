@@ -1,0 +1,31 @@
+Last Week
+We found some publications that support our claim and
+presented our project to the class. 
+We finished most parts of the implementations of event handler and some parts of the slack bot. 
+We configured CI/CD pipeline, and reached a running version in the cloud. We added a test framework
+and implemented a test suite for the code we had so far.
+
+This Week 
+This week, in addition to the presentation of the project 
+to the class and the draft of our final report, we focused
+on the implementation of our project to get it to a working
+state. We finally implemented module to communicate with
+GitHub as well as a database to store relevant data and
+began manually testing the project. Our initial
+results identified bugs and further development needs but 
+we ended yesterday with a working version from github pull
+request creation to comments on the pr. We also sent out a
+survey and began to receive feedback from real users on the
+concepts of code reviews in general and our app. 
+
+Next Week
+Next week we will get the app in front of users for a round
+of concentrated feedback on the current features of the 
+applications and attempt to address the concerns of our 
+users. Next week we hope to see our app published in the 
+Slack App Directory :)
+
+Meeting Agenda
+1. Final draft feedback
+2. Devise a user testing plan 
+3. Gather advice, suggestions, and address concerns
