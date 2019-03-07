@@ -83,7 +83,7 @@ exports.getGitHubNameByUid = async (uid) => {
 exports.getUidByGitHubName = async (githubName) => {
     try {
         //await client.connect();
-        const res = await client.query(getUidByGitHubName, [githubName]);
+        const res = await client.query(getUidByGitHubName, [githubName.toLowerCase()]);
         const uid = res.rows[0];
         console.log("slack_uid: ", uid);
         //await client.end();
@@ -111,7 +111,7 @@ exports.insertNewRecord = async(pid, cid) => {
 exports.insertNewUser = async(uid, githubName) => {
     try {
         //await client.connect();
-        const res = await client.query(insertNewUser, [uid, githubName]);
+        const res = await client.query(insertNewUser, [uid, githubName.toLowerCase()]);
         console.log("res:", res);
         //await client.end();
         //return res;
