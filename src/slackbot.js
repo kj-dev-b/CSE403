@@ -135,7 +135,7 @@ exports.inviteReviewers = (channelId, ids) => {
 // channelId: the channel to send message to
 // code: diff of the code
 // commitNum: commit # of the latest change
-exports.changesAddedPR = (channelId, code, commitNum) => {
+exports.changesAddedPR = async (channelId, code, commitNum) => {
 	// send message to channel
 	text = `Changes were made to this pull request by <@${data.contributorId}>`;
 	await sendMessage(channelId, text);
