@@ -233,7 +233,10 @@ exports.help = (command, message, payload) => {
 	return {
 		"text": `Here's some commands to get you started:`,
 		"attachments": [{
-			"text": help
+			"text": `Inline Comment: /qreview comment line+ “...” /qreview comment line- “...”
+General Comment: /qreview comment "..."
+Request Changes: /qreview request changes “...”
+Approve: /qreview approve "..."`
 		}]
 	}
 }
