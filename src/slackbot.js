@@ -29,67 +29,63 @@ axios.post('https://slack.com/api/channels.create',
         // save user info
 		data.contributorId = uid;*/
 
-async function postRequest(url, param) {
-	axios.post(url, qs.stringify(param))
+postRequest = async function (url, param) {
+	return axios.post(url, qs.stringify(param))
 	.then((res) => {
-		console.log(`statusCode: ${res.status}`);
-		// log result
-		// console.log("response data", res.data);
-		console.log(res.data.ok);
 		// request failed
 		if (res.data.ok === false) {
 			// log error
 			console.log(res.data.error);
 			return;
 		}
-		// success
-		console.log(res.data);
 		return res.data;
-	})
-	.catch((error) => { 
-		console.error(error);
-	})
+	});
 }		
 
-async function createChannel(pName, prNum) {
-	let res = {};
-	postRequest('https://slack.com/api/groups.create', {
-		token: SLACK_USER_TOKEN,
-		// name of channel = name of project - pull request#
-		name: `${pName} - ${prNum}`
-	}).then((ret) => {
-		console.log("ret: ", ret);
-		//db.insertNewRecord(prNum, ret.group.id);
-		res.channelId = ret.group.id;
-		res.channelName = ret.group.name;
+createChannel = async function (pName, prNum) {
+	return postRequest(
+		'https://slack.com/api/groups.create', 
+		{
+			token: SLACK_USER_TOKEN,
+			// name of channel = name of project - pull request#
+			name: `3test`
+		}
+	).then((res) => {
+		console.log(res);
+		return res;
 	});
-	return res;
 }
 
 async function inviteUser(channelId, userId)  {
-	postRequest('https://slack.com/api/groups.invite', {
+	return postRequest('https://slack.com/api/groups.invite', {
 		token: SLACK_USER_TOKEN,
 		channel: channelId,
-		user: userId
-	})
+		user: 'UFPNJG962'
+	}).then((res) => {
+		console.log(res);
+	});
 }
 
 async function sendMessage(channelId, text) {
 	postRequest('https://slack.com/api/chat.postMessage', {
-		token: SLACK_BOT_TOKEN,
+		token: SLACK_USER_TOKEN,
 		channel: channelId,
 		text: text
-	})
+	}).then((res) => {
+		console.log(res);
+	});
 }
 
 async function sendSnippet(channelId, code, commitNum) {
 	postRequest('https://slack.com/api/files.upload', {
 		token: SLACK_USER_TOKEN,
-		channel: channelId,
+		channels: channelId,
 		content: code,
 		filetype: 'diff',
 		title: commitNum
-	})
+	}).then((res) => {
+		console.log(res);
+	});
 }
 
 exports.createChannel = createChannel;
@@ -105,12 +101,17 @@ exports.sendSnippet = sendSnippet;
 // - code: diff of the code
 // - commitNum: commit # of pull request
 exports.newPR = async (pName, prNum, contributorId, code, commitNum) => {
-	let channelInfo = await createChannel(pName, prNum);
-	await inviteUser(channelInfo.channelId, contributorId);
-	text = `Welcome to ${channelInfo.channelName}! You have a new pull request
-	awaiting review from <@${contributorId}>. Here is the snippet:`;
-	await sendMessage(channelInfo.channelId, text);
-	sendSnippet(channelInfo.channelId, code, commitNum);		
+	createChannel(pName, prNum).then((data) => {
+		let channelId = data.group.id;
+		inviteUser(data.group.id, contributorId).then((res)=> {
+			console.log(data.group.id, channelId);
+			let welcome_text = `Welcome to ${data.group.name}! You have a new pull request
+// awaiting review from <@${contributorId}>. Here is the snippet:`;
+			sendMessage(data.group.id, welcome_text).then((res)=> {
+				sendSnippet(data.group.id, code, commitNum);
+			});
+		});
+	});
 }
 
 
