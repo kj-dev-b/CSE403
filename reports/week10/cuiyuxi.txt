@@ -1,1 +1,19 @@
-I
+CSE 403
+Individual Status Report
+Yuxi Cui
+
+Last Week Summary
+1. Finish implementation
+2. Script for generating metrics from test data
+3. Test Suite Generation
+
+Current Week Progress
+I worked with keegan to finally make a complete pipeline going throw github to our server and db to slack.
+I am in the process of doing the comperative study (should be done tomorrow).
+Wasn't able to completely finish the implementation due to team communication but trying to implement as much as I can.
+
+Next Week Plan
+1. Nail the exam
+2. Iterate project based on testing result
+3. Distribute project
+4. Script for generating metrics from test data
