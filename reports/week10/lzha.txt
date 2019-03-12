@@ -1,0 +1,16 @@
+CSE 403
+Individual Status Report #6
+Annabelle Zha
+
+Section 1 - Last Week:
+Created a survey and spread it to my friends for gaining some user study result. Did some pair programming
+as a group to get the slackbot working without errors. Spent much time on trying to get the project run on my laptop (windows).
+
+Section 2 - Current Week:
+I will complete my part once the github and databse is set up completely. I'm currently helping
+to come up with a specific plan for the comparative user study and we should be conducting it
+before the deadline of the final report. Will continue to gather more user data and add it to
+our report.
+
+Section 3: Next Week
+Finish implementation, and distribute the app.
