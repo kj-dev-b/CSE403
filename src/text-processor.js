@@ -1,3 +1,6 @@
+// zhen: this file has a different naming convention than others
+
+// zhen: no doc
 function extractCommand(rawInput) {
     const cleanInput = rawInput.trim().toLowerCase();
     if(cleanInput.startsWith("comment")) {

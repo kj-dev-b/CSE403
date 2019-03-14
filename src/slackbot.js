@@ -5,6 +5,7 @@ const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const db = require('./db');
 const qs = require('qs');
 
+// zhen: don't put commented code in your codebase
 /*
 axios.post('https://slack.com/api/channels.create', 
         qs.stringify({
