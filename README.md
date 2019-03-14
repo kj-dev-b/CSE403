@@ -48,6 +48,14 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 
 ### Setup
 
+Currently, the best way to try out our app is through our workplace.
+If you are interested, please open an issue or contact us so we can invite you to try out the app.
+
+If you chose to set up your own app, you need some credentials to access our server, please contact
+us for those information as we don't think it's secure to directly post it here.
+
+That being said, since you need to contact us anyway, we strongly recomment trying through our workspace.
+
 ##### Create a Slack app
 
 1. Create an app at api.slack.com/apps
