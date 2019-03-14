@@ -89,3 +89,17 @@ When a review is created in GitHub, users are able to interact with it in Slack.
 	* For example, `https://ade1f065.ngrok.io/githubWebhook`
 4. You should now be able to try out the command in Slack. Additionally, it will
    log when a pull request is made on the repo.
+   
+#### Graph Reproduce
+Raw Data and Graph reproduce
+Since all of our tests are either survey-based or user-study, our graph is generated based on our gathered data. 
+
+To reproduce the graph for the survey from raw data, click on this url: https://docs.google.com/spreadsheets/d/1-r1j6aMvHRCz_etc8TJ5EaYFBUqdZnuxDL6y-Bm-Tcw/edit?usp=sharing
+The graph will be auto-generated based on the data gathered through survey
+
+To reproduce the graph for the comparative study: click on this url:
+https://docs.google.com/spreadsheets/d/1lJ3q0a1mGNdyjdGDvmumwzfJpNHEtvdLmyS1nE3YPKg/edit?usp=sharing
+The graph will be auto-generated based on the data gathered in the comparative study.
+
+If you want to reproduce the whole tests, you can use our survey questions and comparative study protocol to conduct further testings yourself. These information are available under ‘~/evaluation’ directory.
+
