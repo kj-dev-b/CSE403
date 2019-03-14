@@ -55,6 +55,7 @@ app.post('/qreview', async function(req, res) {
     } else if (githubUser) {
         const command = textProcessor.extractCommand(raw);
         const message = textProcessor.extractMessage(raw);
+        console.log('processing command: ' + command);
         const response = (handler.handle(command, message, req.body));
         res.send(response);
     } else {

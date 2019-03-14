@@ -4,6 +4,11 @@ const SLACK_USER_TOKEN = process.env.SLACK_USER_TOKEN;
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const db = require('./db');
 const qs = require('qs');
+const help = `Hello! Here are some commands you can try:
+/qreview comment <comment>
+/qreview request changes <comment>
+/qreview approve <comment>
+If it is your first time here, type /qreview configure <github username>`
 
 /*
 axios.post('https://slack.com/api/channels.create', 
@@ -168,6 +173,7 @@ exports.approve = (command, message, payload) => {
 }
 
 exports.help = (command, message, payload) => {
+	console.log('returning command help');
 	return {
 		"text": `Here's some commands to get you started:`,
 		"attachments": [{
