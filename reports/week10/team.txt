@@ -1,13 +1,14 @@
-
 Last Week
-Last week we conducted a comperative study of the efficiency of our app.
-The initial results showed proof that our app can indeed improve code review
-efficiency by reducing communication friction. However, we were not able to
-publish the app as planned. Instead, we chose to invite interested users into
+Last week we spent some time doing pair programming for our implementations.
+However, we were not able to publish the app as planned. 
+Instead, we chose to invite interested users into
 our workspace and let them try out Qreview there as this requires minimal setup.
+We also created a survey for qualitative research and gained some prliminary results.
 
 This Week 
-
+we conducted a comperative study of the efficiency of our app.
+The initial results showed proof that our app can indeed improve code review
+efficiency by reducing communication friction.
 
 Next Week
 Next week we hope to see our app finally published in the 
