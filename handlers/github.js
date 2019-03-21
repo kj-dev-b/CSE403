@@ -1,6 +1,7 @@
 var bot = require('../src/slackbot.js');
 var db = require('../src/db.js');
 const qs = require('qs');
+const SLACK_USER_TOKEN = process.env.SLACK_USER_TOKEN;
 // Handlers for events from github webhooks.
 
 require('dotenv').config();
@@ -13,6 +14,7 @@ const Octokit = require('@octokit/rest');
 const octokit = new Octokit();
 
 postRequest = async function (url, param) {
+    param.token = SLACK_USER_TOKEN;
     return axios.post(url, qs.stringify(param))
     .then((res) => {
         // request failed
