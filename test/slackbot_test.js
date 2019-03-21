@@ -66,18 +66,4 @@ describe('slackbot', function() {
     });
   });
 
-  describe('#newPR', function() {
-    it('should make a post request 4 times', function() {
-      postRequest = async function(url, param) {
-        return {
-          group: {
-            id: '1234',
-            name: 'qreview'
-          }
-        }
-      };
-      var actual = bot.newPR('', '', '123', '123', '111', postRequest);
-    });
-  })
-
 });

@@ -39,7 +39,7 @@ createChannel = async function (pName, prNum, postRequest) {
 		{
 			token: SLACK_USER_TOKEN,
 			// name of channel = name of project - pull request#
-			name: `pullrequest-36`
+			name: `pullrequest-37`
 		}
 	).then((res) => {
 		console.log(res);
