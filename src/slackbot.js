@@ -1,7 +1,5 @@
 const axios = require('axios');
 require('dotenv').config();
-const SLACK_USER_TOKEN = process.env.SLACK_USER_TOKEN;
-const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const db = require('./db');
 const help = `Hello! Here are some commands you can try:
 /qreview comment <comment>
@@ -37,9 +35,8 @@ createChannel = async function (pName, prNum, postRequest) {
 	return postRequest(
 		'https://slack.com/api/groups.create', 
 		{
-			token: SLACK_USER_TOKEN,
 			// name of channel = name of project - pull request#
-			name: `pullrequest-37`
+			name: `pullrequest-38`
 		}
 	).then((res) => {
 		console.log(res);
@@ -49,7 +46,6 @@ createChannel = async function (pName, prNum, postRequest) {
 
 async function inviteUser(channelId, userId, postRequest)  {
 	return postRequest('https://slack.com/api/groups.invite', {
-		token: SLACK_USER_TOKEN,
 		channel: channelId,
 		user: 'UFPNJG962'
 	}).then((res) => {
@@ -59,7 +55,6 @@ async function inviteUser(channelId, userId, postRequest)  {
 
 async function sendMessage(channelId, text, postRequest) {
 	postRequest('https://slack.com/api/chat.postMessage', {
-		token: SLACK_USER_TOKEN,
 		channel: channelId,
 		text: text
 	}).then((res) => {
@@ -69,7 +64,6 @@ async function sendMessage(channelId, text, postRequest) {
 
 async function sendSnippet(channelId, code, commitNum, postRequest) {
 	postRequest('https://slack.com/api/files.upload', {
-		token: SLACK_USER_TOKEN,
 		channels: channelId,
 		content: code,
 		filetype: 'diff',
