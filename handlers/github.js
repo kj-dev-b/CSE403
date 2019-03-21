@@ -1,5 +1,6 @@
 var bot = require('../src/slackbot.js');
 var db = require('../src/db.js');
+const qs = require('qs');
 // Handlers for events from github webhooks.
 
 require('dotenv').config();
@@ -10,6 +11,19 @@ const webhooks = new WebhooksApi({
 });
 const Octokit = require('@octokit/rest');
 const octokit = new Octokit();
+
+postRequest = async function (url, param) {
+    return axios.post(url, qs.stringify(param))
+    .then((res) => {
+        // request failed
+        if (res.data.ok === false) {
+            // log error
+            console.log(res.data.error);
+            return;
+        }
+        return res.data;
+    });
+}
 
 webhooks.on('pull_request.opened', async ({id, name, payload}) => {
   repo = payload.repository.full_name;
@@ -27,7 +41,7 @@ webhooks.on('pull_request.opened', async ({id, name, payload}) => {
   var uid = await db.getUidByGitHubName(username);
   var diff = await diff_promise;
 
-  bot.newPR('test', 'ill-quit', uid.uid, diff, pull_request_number)
+  bot.newPR('', '', uid.uid, diff, pull_request_number, postRequest)
 });
 
 module.exports = webhooks.middleware

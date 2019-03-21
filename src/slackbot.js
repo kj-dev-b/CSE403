@@ -3,7 +3,6 @@ require('dotenv').config();
 const SLACK_USER_TOKEN = process.env.SLACK_USER_TOKEN;
 const SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN;
 const db = require('./db');
-const qs = require('qs');
 const help = `Hello! Here are some commands you can try:
 /qreview comment <comment>
 /qreview request changes <comment>
@@ -34,26 +33,13 @@ axios.post('https://slack.com/api/channels.create',
         // save user info
 		data.contributorId = uid;*/
 
-postRequest = async function (url, param) {
-	return axios.post(url, qs.stringify(param))
-	.then((res) => {
-		// request failed
-		if (res.data.ok === false) {
-			// log error
-			console.log(res.data.error);
-			return;
-		}
-		return res.data;
-	});
-}		
-
-createChannel = async function (pName, prNum) {
+createChannel = async function (pName, prNum, postRequest) {
 	return postRequest(
 		'https://slack.com/api/groups.create', 
 		{
 			token: SLACK_USER_TOKEN,
 			// name of channel = name of project - pull request#
-			name: `3test`
+			name: `pullrequest-36`
 		}
 	).then((res) => {
 		console.log(res);
@@ -61,7 +47,7 @@ createChannel = async function (pName, prNum) {
 	});
 }
 
-async function inviteUser(channelId, userId)  {
+async function inviteUser(channelId, userId, postRequest)  {
 	return postRequest('https://slack.com/api/groups.invite', {
 		token: SLACK_USER_TOKEN,
 		channel: channelId,
@@ -71,7 +57,7 @@ async function inviteUser(channelId, userId)  {
 	});
 }
 
-async function sendMessage(channelId, text) {
+async function sendMessage(channelId, text, postRequest) {
 	postRequest('https://slack.com/api/chat.postMessage', {
 		token: SLACK_USER_TOKEN,
 		channel: channelId,
@@ -81,7 +67,7 @@ async function sendMessage(channelId, text) {
 	});
 }
 
-async function sendSnippet(channelId, code, commitNum) {
+async function sendSnippet(channelId, code, commitNum, postRequest) {
 	postRequest('https://slack.com/api/files.upload', {
 		token: SLACK_USER_TOKEN,
 		channels: channelId,
@@ -105,15 +91,15 @@ exports.sendSnippet = sendSnippet;
 // - contributorId: contributor Slack user id
 // - code: diff of the code
 // - commitNum: commit # of pull request
-exports.newPR = async (pName, prNum, contributorId, code, commitNum) => {
-	createChannel(pName, prNum).then((data) => {
+exports.newPR = async (pName, prNum, contributorId, code, commitNum, postRequest) => {
+	createChannel(pName, prNum, postRequest).then((data) => {
 		let channelId = data.group.id;
-		inviteUser(data.group.id, contributorId).then((res)=> {
+		inviteUser(data.group.id, contributorId, postRequest).then((res)=> {
 			console.log(data.group.id, channelId);
 			let welcome_text = `Welcome to ${data.group.name}! You have a new pull request
-// awaiting review from <@${contributorId}>. Here is the snippet:`;
-			sendMessage(data.group.id, welcome_text).then((res)=> {
-				sendSnippet(data.group.id, code, commitNum);
+awaiting review from <@${contributorId}>. Here is the snippet:`;
+			sendMessage(data.group.id, welcome_text, postRequest).then((res)=> {
+				sendSnippet(data.group.id, code, commitNum, postRequest);
 			});
 		});
 	});
